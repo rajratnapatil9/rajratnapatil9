@@ -76,7 +76,7 @@ Programming Languages
 
 <img title ="HTML" src = "https://raw.githubusercontent.com/rajratnapatil9/rajratnapatil9/main/svgs/html.svg" alt ="HTML" width ="40" height ="40" ></a>
 
-<img  title ="CSS" src = "https://raw.githubusercontent.com/rajratnapatil9/rajratnapatil9/main/svgs/html.svg" alt ="CSS" width ="40" height ="40" ></a>
+<img  title ="CSS" src = "https://raw.githubusercontent.com/rajratnapatil9/rajratnapatil9/main/svgs/css.svg" alt ="CSS" width ="40" height ="40" ></a>
 
 <img title ="JAVA SCRIPT" src = "https://raw.githubusercontent.com/rajratnapatil9/rajratnapatil9/main/svgs/javascript.svg" alt ="JS" width ="40" height ="40" ></a>
 
