@@ -18,9 +18,10 @@
 🌱 I’m currently learning <a href= https://learn.microsoft.com/en-us/certifications/exams/dp-500/>Azure Devops certification-DP-500</a>
 </p>
 <p align= "left">
-📫 Reach me at ----> <a href= rajratnapatil9@gmail.com>mailto:rajratnapatil9@gmail.com<a>
+📫 Reach me at ----> <a href= mailto:rajratnapatil9@gmail.com>rajratnapatil9@gmail.com<a>
 </p>
-
+<br>
+<a href = "https://www.linkedin.com/in/rajratna-patil" target ="blank"><img align = "center" src =  "https://github.com/rajratnapatil9/rajratnapatil9/blob/main/svgs/linked-in.svg"></a>
 
 
 
