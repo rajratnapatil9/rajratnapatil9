@@ -1,5 +1,6 @@
 <h1 align ="center"> Hey Everyone! I am  Rajratna Patil </h1>
-<div align = "center"><img src ="https://raw.githubusercontent.com/rajratnapatil9/rajratnapatil9/main/images/mypicture.gif" alt="add your image"></div>
+<div align = "center"><img src ="https://raw.githubusercontent.com/rajratnapatil9/rajratnapatil9/main/images/mypicture.gif" alt="add your image" height = "150" width = "150">
+</div>
 <h3 align = "center">I am a Passionate Data Analyst.<br> I have 4 + years of work experience in cross-funtional domains. </br>Currenlty support 4 teams:
 <br>
 <br>
