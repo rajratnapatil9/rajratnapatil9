@@ -13,9 +13,9 @@
 </table>
 
 <br>
- <p align = "left"> 🔭 I’m currently working on <b>"Portfolio Website in Next JS"</b></p>
+ <p align = "left"> 🔭 I’m currently working on <b>"Data Science Application"</b></p>
 <p align = "left">
-🌱 I’m currently learning <a href= https://learn.microsoft.com/en-us/certifications/exams/dp-500/>Azure Devops certification-DP-500</a>
+🌱 I’m currently learning <a href= https://www.databricks.com/learn/certification/data-engineer-associate>Databricks Certified Data Engineer Associate</a>
 </p>
 <p align= "left">
 📫 Reach me at Below Social Medias 
