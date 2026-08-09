@@ -1,24 +1,28 @@
-import Image from "next/image";
 import { certifications } from "@/data/site";
-import { Icon } from "@/components/Icon";
-
-export const metadata = { title: "Certifications | RajSavvy" };
 
 export default function CertificationsPage() {
   return (
     <>
       <section className="page-hero section-shell">
-        <div className="eyebrow">Certifications</div>
-        <h1>Keep learning. <span>Keep sharpening the toolkit.</span></h1>
-        <p>The certification collection from the original portfolio, rebuilt as a clean responsive gallery.</p>
+        <span className="eyebrow">Certifications</span>
+        <h1>Continuous learning across the <span>modern data stack.</span></h1>
+        <p>
+          Coursework and certification paths that reinforce practical work in cloud data engineering, analytics and data science.
+        </p>
       </section>
-      <section className="section-shell section-block certification-grid">
-        {certifications.map(([title, image, href]) => (
-          <article className="certificate-card" key={title}>
-            <a href={href} target="_blank" rel="noreferrer" className="certificate-image-wrap">
-              <Image src={image} alt={`${title} certificate`} width={800} height={600} className="certificate-image" />
-            </a>
-            <div><h3>{title}</h3><a href={href} target="_blank" rel="noreferrer">View certificate <Icon name="external" size={16}/></a></div>
+
+      <section className="section-block section-shell certification-grid">
+        {certifications.map((cert, index) => (
+          <article className="certificate-card" key={cert.name}>
+            <div className={`certificate-top cert-${index + 1}`}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{cert.issuer}</strong>
+            </div>
+            <div>
+              <span className="pill">{cert.issuer}</span>
+              <h3>{cert.name}</h3>
+              <p>{cert.note}</p>
+            </div>
           </article>
         ))}
       </section>

@@ -1,21 +1,23 @@
-import { Icon } from "./Icon";
+import { site } from "@/data/site";
 
-export function Footer() {
+export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" id="contact">
       <div className="footer-shell">
         <div>
-          <div className="eyebrow">Contact</div>
-          <h2>Have an idea worth discussing?</h2>
-          <p>I&apos;m always open to thoughtful conversations around data, engineering, analytics and collaboration.</p>
+          <span className="eyebrow light">Open to meaningful data problems</span>
+          <h2>Build reliable data. Make it useful.</h2>
+          <p>
+            I enjoy turning operational complexity into clean pipelines, understandable models and analytics people can act on.
+          </p>
         </div>
         <div className="contact-links">
-          <a href="mailto:rajratnapatil9@gmail.com"><Icon name="mail" /> Email me</a>
-          <a href="https://www.linkedin.com/in/rajratna-patil-46ba54103/" target="_blank" rel="noreferrer"><Icon name="linkedin" /> LinkedIn</a>
-          <a href="https://github.com/rajratnapatil9" target="_blank" rel="noreferrer"><Icon name="github" /> GitHub</a>
+          <a href={`mailto:${site.email}`}>Email <span>↗</span></a>
+          <a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+          <a href={site.github} target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
         </div>
       </div>
-      <div className="footer-bottom">© {new Date().getFullYear()} Rajratna Patil · RajSavvy</div>
+      <div className="footer-bottom">© {new Date().getFullYear()} {site.name}. Built with Next.js.</div>
     </footer>
   );
 }

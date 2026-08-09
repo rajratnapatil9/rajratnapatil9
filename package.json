@@ -1,12 +1,11 @@
 {
-  "name": "rajsavvy-nextjs-v1",
+  "name": "rajsavvy-nextjs-full-bg",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "tsc --noEmit"
+    "start": "next start"
   },
   "dependencies": {
     "next": "16.2.12",
@@ -14,9 +13,9 @@
     "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@types/node": "^24.0.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "typescript": "^5.9.0"
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.3",
+    "@types/react-dom": "^19.0.2",
+    "typescript": "^5.7.2"
   }
 }

@@ -1,20 +1,61 @@
-import { ProjectCard } from "@/components/ProjectCard";
-import { projects } from "@/data/site";
+import { featuredProjects } from "@/data/site";
 
-export const metadata = { title: "Projects | RajSavvy" };
+const details = [
+  {
+    title: "Transport Delivery Precision Platform",
+    problem: "Carrier files arrive in different structures, date/time conventions and business definitions.",
+    build: "Reusable Python cleaning, carrier-specific processors, Databricks transformation, dimensional enrichment and SQL fact loading.",
+    outcome: "A consistent analytics layer for delivery precision, delay analysis, carrier comparison and geographic reporting.",
+  },
+  {
+    title: "Weekly Workforce Snapshot",
+    problem: "Operational workforce reporting needs stable week definitions and repeatable snapshots instead of point-in-time manual extracts.",
+    build: "Daily source snapshots, weekly flag logic, partition-aware storage, calendar modeling and reusable Power BI measures.",
+    outcome: "Repeatable historical headcount analysis with week-over-week movement, supervisor views and workforce trends.",
+  },
+  {
+    title: "Delivery Precision Geo Analytics",
+    problem: "Delivery performance needs geographic context without requiring every source record to contain latitude and longitude.",
+    build: "A managed destination-location dimension, hierarchical country/state/city controls and DAX-driven status bands.",
+    outcome: "Map-based operational visibility with dynamic granularity and clear performance interpretation.",
+  },
+];
 
 export default function ProjectsPage() {
   return (
     <>
       <section className="page-hero section-shell">
-        <div className="eyebrow">Projects</div>
-        <h1>Ideas become useful when <span>you build them.</span></h1>
-        <p>A refreshed collection of the engineering, analytics and visualization projects from the original RajSavvy portfolio.</p>
+        <span className="eyebrow">Projects</span>
+        <h1>Data engineering work built around <span>real operating problems.</span></h1>
+        <p>
+          A selection of platform, analytics and modeling work focused on reliability, traceability and decision support.
+        </p>
       </section>
-      <section className="section-shell section-block">
-        <div className="projects-grid">
-          {projects.map((project) => <ProjectCard key={project.title} project={project} />)}
-        </div>
+
+      <section className="section-block section-shell project-detail-list">
+        {details.map((item, index) => {
+          const project = featuredProjects[index];
+          return (
+            <article className="project-detail-card" key={item.title}>
+              <div className={`project-detail-visual ${project.accent}`}>
+                <span>0{index + 1}</span>
+                <strong>{project.category}</strong>
+              </div>
+              <div className="project-detail-copy">
+                <span className="pill">{project.category}</span>
+                <h2>{item.title}</h2>
+                <div className="project-detail-grid">
+                  <div><b>Problem</b><p>{item.problem}</p></div>
+                  <div><b>Build</b><p>{item.build}</p></div>
+                  <div><b>Outcome</b><p>{item.outcome}</p></div>
+                </div>
+                <div className="stack-list">
+                  {project.stack.map((stack) => <span key={stack}>{stack}</span>)}
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </section>
     </>
   );
