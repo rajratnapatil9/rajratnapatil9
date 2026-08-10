@@ -22,27 +22,27 @@ export const skills = [
 
 export const featuredProjects = [
   {
-    category: "Data Engineering",
     title: "Transport Delivery Precision Platform",
+    category: "Data Engineering",
     description:
       "A carrier-normalization pipeline that turns inconsistent operational files into trusted dimensions, facts and Power BI delivery-precision analytics.",
     stack: ["Databricks", "Azure", "Python", "SQL", "Power BI"],
     accent: "project-violet",
   },
   {
-    category: "People Analytics",
     title: "Weekly Workforce Snapshot",
+    category: "People Analytics",
     description:
-      "A weekly snapshot model with calendar logic, dimensional reporting and interactive Power BI views for workforce movement and headcount analysis.",
+      "A weekly workforce model built from daily Parquet snapshots, persisted weekly history and analytical views for headcount and employee movement reporting.",
     stack: ["SQL", "Spark", "Power BI", "Azure Blob"],
     accent: "project-blue",
   },
   {
+    title: "Andon Screens",
     category: "Analytics Product",
-    title: "Delivery Precision Geo Analytics",
     description:
-      "A location-aware reporting layer for city, state and country performance with dynamic precision bands, map levels and operational drill-down.",
-    stack: ["Power BI", "DAX", "Data Modeling"],
+      "A near-real-time Andon image pipeline that generates operational screens in Databricks every 10 minutes, stores them in Azure Blob Storage and streams them securely through SAS links.",
+    stack: ["Databricks", "Python", "Azure Blob", "SAS"],
     accent: "project-cyan",
   },
 ];

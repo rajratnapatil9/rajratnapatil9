@@ -398,6 +398,7 @@ p { color: var(--muted); }
 
 .featured-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
 }
 
 .project-card {
@@ -405,6 +406,9 @@ p { color: var(--muted); }
   border-radius: var(--radius);
   background: var(--surface);
   border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
   transition: transform .25s ease, box-shadow .25s ease;
 }
 
@@ -414,29 +418,26 @@ p { color: var(--muted); }
 }
 
 /*
-  Thumbnail naming convention:
-  /public/images/thumbnail_<project_name>.png
+  HOME THUMBNAIL CANVAS
 
-  Example:
-  Transport Delivery Precision
-  -> /images/thumbnail_transport_delivery_precision.png
+  1.68 is a compromise between:
+  - Transport sketch ≈ 3:2
+  - Workforce sketch ≈ 1.82:1
 
-  IMPORTANT:
-  The image is intentionally shown as the focus of the card.
-  We use "contain" instead of "cover" so architecture diagrams
-  and dashboards are not cropped.
+  Images use CONTAIN, so nothing is cropped.
 */
 .project-visual {
-  aspect-ratio: 1.55;
+  width: 100%;
+  aspect-ratio: 1.68 / 1;
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  flex: 0 0 auto;
 
-  background: #f8faff;
+  background: #ffffff;
   border-bottom: 1px solid rgba(16, 21, 35, .08);
 }
 
-/* Main project thumbnail */
 .project-thumbnail {
   position: absolute;
   inset: 0;
@@ -445,89 +446,31 @@ p { color: var(--muted); }
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: #f8faff;
+  background-color: #ffffff;
 
-  transform: scale(1.002);
-  transition: transform .4s ease;
+  transform: scale(1);
+  transition: transform .35s ease;
 }
 
-/*
-  Keep the overlay extremely light.
-  This avoids the heavy dark fade that was hiding the diagram.
-*/
+/* No dark wash over technical diagrams */
 .project-visual-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(12, 22, 45, .00) 0%,
-      rgba(12, 22, 45, .00) 68%,
-      rgba(12, 22, 45, .06) 100%
-    );
-
-  pointer-events: none;
-}
-
-/* Category badge only — title stays in the card body */
-.project-visual-content {
-  position: relative;
-  z-index: 2;
-
-  height: 100%;
-  padding: 16px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-
-  pointer-events: none;
-}
-
-.project-visual-content span {
-  display: inline-flex;
-  align-items: center;
-
-  padding: 6px 10px;
-
-  border: 1px solid rgba(255, 255, 255, .92);
-  border-radius: 999px;
-
-  background: rgba(255, 255, 255, .88);
-  backdrop-filter: blur(10px);
-
-  color: #3158a5;
-
-  font-size: .60rem;
-  font-weight: 850;
-  text-transform: uppercase;
-  letter-spacing: .11em;
-
-  box-shadow: 0 5px 18px rgba(18, 34, 64, .08);
-}
-
-/*
-  Hide duplicate project title over the image.
-  The full title is already shown directly below in the card body.
-*/
-.project-visual-content strong {
   display: none;
 }
 
-/* Remove the old decorative circle that covered part of the image */
+/* No duplicate label/title over the thumbnail */
+.project-visual-content {
+  display: none;
+}
+
 .project-visual::after {
   display: none;
 }
 
-/* Small hover zoom — subtle enough for diagrams */
 .project-card:hover .project-thumbnail {
-  transform: scale(1.015);
+  transform: scale(1.012);
 }
 
-/* Existing accent classes remain useful as fallback backgrounds */
+/* Accent classes remain as fallback if needed */
 .project-violet {
   background: linear-gradient(135deg, #4f46e5, #8b5cf6);
 }
@@ -542,6 +485,9 @@ p { color: var(--muted); }
 
 .project-card-body {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .project-card-body h3 {
@@ -551,10 +497,12 @@ p { color: var(--muted); }
 .project-card-body p {
   font-size: .86rem;
   min-height: 92px;
+  margin-bottom: 0;
 }
 
 .pill {
   display: inline-flex;
+  align-self: flex-start;
   padding: 5px 9px;
   border-radius: 999px;
   background: rgba(91, 93, 240, .09);
@@ -570,6 +518,11 @@ p { color: var(--muted); }
   flex-wrap: wrap;
   gap: 7px;
   padding-top: 8px;
+}
+
+.project-card-body .stack-list {
+  margin-top: auto;
+  padding-top: 16px;
 }
 
 .stack-list span {
@@ -662,25 +615,20 @@ p { color: var(--muted); }
 .skill-cloud span { padding: 7px 11px; border-radius: 999px; border: 1px solid var(--line); background: white; color: #565e71; font-size: .77rem; font-weight: 650; }
 
 /* =========================================================
-   PROJECT DETAIL
+   PROJECT DETAIL — NO-CROP BALANCED LAYOUT
    ========================================================= */
 
 .project-detail-list {
   display: grid;
-  gap: 24px;
+  gap: 26px;
 }
 
-/*
-  Compact desktop card:
-  the left image keeps the same 3:2 ratio as the thumbnail,
-  so there is no large blank band above/below the diagram.
-*/
 .project-detail-card {
   display: grid;
-  grid-template-columns: minmax(0, 45%) minmax(0, 55%);
-  align-items: stretch;
+  grid-template-columns: minmax(0, 44%) minmax(0, 56%);
+  align-items: center;
 
-  background: #fff;
+  background: #ffffff;
   border: 1px solid var(--line);
   border-radius: 26px;
   overflow: hidden;
@@ -688,38 +636,47 @@ p { color: var(--muted); }
   box-shadow: 0 8px 28px rgba(24, 31, 54, .035);
 }
 
-/* LEFT IMAGE */
+/*
+  The left panel uses its own aspect ratio instead of stretching
+  to the height of the right text panel.
+
+  background-size: contain = NO CROPPING.
+*/
 .project-detail-visual {
   position: relative;
 
   width: 100%;
+  min-width: 0;
   min-height: 0;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 1.68 / 1;
 
   padding: 0;
 
-  background-color: #ffffff;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #ffffff !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
 
-  border-right: 1px solid rgba(16, 21, 35, .07);
+  align-self: center;
 }
 
-/* Hide old decorative number/category if older JSX still contains them */
 .project-detail-visual > span,
 .project-detail-visual > strong {
   display: none;
 }
 
-/* RIGHT CONTENT */
+/* Divider belongs to the content panel so it spans full card height */
 .project-detail-copy {
   min-width: 0;
-  padding: 26px 34px;
+  align-self: stretch;
+
+  padding: 28px 34px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  border-left: 1px solid rgba(16, 21, 35, .07);
 }
 
 .project-detail-copy .pill {
@@ -730,18 +687,18 @@ p { color: var(--muted); }
 .project-detail-copy h2 {
   margin: 0 0 22px;
 
-  font-size: clamp(1.55rem, 2.05vw, 2.15rem);
-  line-height: 1.02;
-  letter-spacing: -.045em;
+  max-width: 650px;
 
-  max-width: 620px;
+  font-size: clamp(1.55rem, 1.95vw, 2.08rem);
+  line-height: 1.04;
+  letter-spacing: -.045em;
 }
 
 /* Problem / Build / Outcome */
 .project-detail-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: 22px;
   align-items: start;
 }
 
@@ -753,26 +710,26 @@ p { color: var(--muted); }
   display: block;
   margin-bottom: 6px;
 
-  font-size: .66rem;
+  color: var(--ink);
+
+  font-size: .65rem;
   font-weight: 850;
   text-transform: uppercase;
   letter-spacing: .11em;
-
-  color: var(--ink);
 }
 
 .project-detail-grid p {
   margin: 0;
 
-  font-size: .76rem;
-  line-height: 1.52;
-
   color: var(--muted);
+
+  font-size: .75rem;
+  line-height: 1.5;
 }
 
-/* Technology pills */
+/* Tech pills */
 .project-detail-copy .stack-list {
-  margin-top: 14px;
+  margin-top: 15px;
   padding-top: 0;
   gap: 6px;
 }
@@ -783,20 +740,20 @@ p { color: var(--muted); }
 }
 
 /* =========================================================
-   PROJECT DETAIL — SMALL LAPTOP / TABLET
+   PROJECT DETAIL — SMALL LAPTOP
    ========================================================= */
-@media (max-width: 1050px) {
+@media (max-width: 1100px) {
   .project-detail-card {
-    grid-template-columns: 42% 58%;
+    grid-template-columns: minmax(0, 43%) minmax(0, 57%);
   }
 
   .project-detail-copy {
-    padding: 24px 26px;
+    padding: 25px 27px;
   }
 
   .project-detail-copy h2 {
-    font-size: clamp(1.45rem, 2.5vw, 1.9rem);
-    margin-bottom: 20px;
+    font-size: clamp(1.4rem, 2.25vw, 1.85rem);
+    margin-bottom: 19px;
   }
 
   .project-detail-grid {
@@ -804,7 +761,7 @@ p { color: var(--muted); }
   }
 
   .project-detail-grid p {
-    font-size: .72rem;
+    font-size: .71rem;
   }
 }
 
@@ -814,26 +771,27 @@ p { color: var(--muted); }
 @media (max-width: 850px) {
   .project-detail-card {
     grid-template-columns: 1fr;
+    align-items: stretch;
   }
 
   .project-detail-visual {
-    aspect-ratio: 3 / 2;
-    background-size: cover;
-    border-right: 0;
-    border-bottom: 1px solid rgba(16, 21, 35, .07);
+    aspect-ratio: 1.68 / 1;
+    width: 100%;
   }
 
   .project-detail-copy {
+    border-left: 0;
+    border-top: 1px solid rgba(16, 21, 35, .07);
     padding: 28px;
   }
 
   .project-detail-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
+    gap: 18px;
   }
 
   .project-detail-grid p {
-    font-size: .79rem;
+    font-size: .77rem;
   }
 }
 
@@ -850,7 +808,7 @@ p { color: var(--muted); }
   }
 
   .project-detail-visual {
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 1.68 / 1;
   }
 
   .project-detail-copy {
@@ -862,9 +820,9 @@ p { color: var(--muted); }
   }
 
   .project-detail-copy h2 {
-    font-size: 1.45rem;
+    font-size: 1.42rem;
     line-height: 1.06;
-    margin-bottom: 22px;
+    margin-bottom: 21px;
   }
 
   .project-detail-grid {
@@ -877,8 +835,8 @@ p { color: var(--muted); }
   }
 
   .project-detail-grid p {
-    font-size: .83rem;
-    line-height: 1.55;
+    font-size: .82rem;
+    line-height: 1.54;
   }
 
   .project-detail-copy .stack-list {
@@ -987,8 +945,6 @@ p { color: var(--muted); }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
 
   .about-photo { max-width: 620px; }
-  .project-detail-card { grid-template-columns: .32fr .68fr; }
-  .project-detail-grid { grid-template-columns: 1fr; gap: 13px; }
 }
 
 /* =========================================================
@@ -1112,10 +1068,6 @@ p { color: var(--muted); }
 
   .project-card-body p { min-height: 0; }
   .education-card { align-items: flex-start; }
-  .project-detail-card { grid-template-columns: 1fr; min-height: 0; }
-  .project-detail-visual { min-height: 150px; }
-  .project-detail-copy { padding: 26px 22px; }
-  .project-detail-grid { grid-template-columns: 1fr; }
   .closing-panel { padding: 32px 24px; margin-bottom: 66px; }
   .page-hero { padding: 72px 0 28px; }
   .footer { padding-top: 52px; }

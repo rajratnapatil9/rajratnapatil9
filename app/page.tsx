@@ -132,8 +132,6 @@ export default function Home() {
                 />
 
                 <div className="project-visual-overlay" />
-
-
               </div>
 
               <div className="project-card-body">

@@ -15,18 +15,18 @@ const details = [
     problem:
       "Operational workforce reporting needs stable week definitions and repeatable snapshots instead of point-in-time manual extracts.",
     build:
-      "Daily source snapshots, weekly flag logic, partition-aware storage, calendar modeling and reusable Power BI measures.",
+      "Daily employee snapshots stored as Parquet, weekly snapshot persistence in Azure, and analytical views for workforce movements, hiring, terminations, rollovers and active ETOs.",
     outcome:
-      "Repeatable historical headcount analysis with week-over-week movement, supervisor views and workforce trends.",
+      "A consistent historical workforce model supporting weekly headcount reporting, employee movement analysis and operational workforce dashboards.",
   },
   {
-    title: "Delivery Precision Geo Analytics",
+    title: "Andon Screens",
     problem:
-      "Delivery performance needs geographic context without requiring every source record to contain latitude and longitude.",
+      "Shop-floor teams need continuously updated operational visuals that can be displayed reliably without depending on manual refreshes or locally hosted files.",
     build:
-      "A managed destination-location dimension, hierarchical country/state/city controls and DAX-driven status bands.",
+      "A Databricks notebook runs every 10 minutes, queries the latest operational data, generates Andon screen PNG images, stores them in Azure Blob Storage and exposes them through time-bound SAS URLs.",
     outcome:
-      "Map-based operational visibility with dynamic granularity and clear performance interpretation.",
+      "Near-real-time Andon displays that stay current automatically, with centralized image storage, secure distribution and no manual screen refresh process.",
   },
 ];
 
@@ -66,10 +66,6 @@ export default function ProjectsPage() {
                 className={`project-detail-visual ${project.accent}`}
                 style={{
                   backgroundImage: `url("${getProjectThumbnail(item.title)}")`,
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "contain",
-                  backgroundColor: "#f8faff",
                 }}
                 role="img"
                 aria-label={`${item.title} project thumbnail`}
