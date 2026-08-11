@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { featuredProjects } from "@/data/site";
 
 const details = [
@@ -30,6 +31,23 @@ const details = [
   },
 ];
 
+const projectRoutes: Record<string, string> = {
+  "Transport Delivery Precision Platform": "/projects/transport-delivery-precision-platform",
+  "Weekly Workforce Snapshot": "/projects/weekly-workforce-snapshot",
+  "Andon Screens": "/projects/andon-screens",
+};
+
+function getProjectHref(title: string) {
+  return (
+    projectRoutes[title] ??
+    `/projects/${title
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")}`
+  );
+}
+
 function getProjectThumbnail(title: string) {
   const fileName = title
     .toLowerCase()
@@ -44,6 +62,10 @@ export default function ProjectsPage() {
   return (
     <>
       <section className="page-hero section-shell">
+        <Link className="text-link" href="/">
+          ← Back to home
+        </Link>
+
         <span className="eyebrow">Projects</span>
 
         <h1>Data engineering work built around real operating problems.</h1>
@@ -60,21 +82,30 @@ export default function ProjectsPage() {
 
           if (!project) return null;
 
+          const projectHref = getProjectHref(item.title);
+
           return (
             <article className="project-detail-card" key={item.title}>
-              <div
-                className={`project-detail-visual ${project.accent}`}
-                style={{
-                  backgroundImage: `url("${getProjectThumbnail(item.title)}")`,
-                }}
-                role="img"
-                aria-label={`${item.title} project thumbnail`}
-              />
+              <Link
+                href={projectHref}
+                aria-label={`Open ${item.title}`}
+              >
+                <div
+                  className={`project-detail-visual ${project.accent}`}
+                  style={{
+                    backgroundImage: `url("${getProjectThumbnail(item.title)}")`,
+                  }}
+                  role="img"
+                  aria-label={`${item.title} project thumbnail`}
+                />
+              </Link>
 
               <div className="project-detail-copy">
                 <span className="pill">{project.category}</span>
 
-                <h2>{item.title}</h2>
+                <h2>
+                  <Link href={projectHref}>{item.title}</Link>
+                </h2>
 
                 <div className="project-detail-grid">
                   <div>
@@ -98,6 +129,14 @@ export default function ProjectsPage() {
                     <span key={stack}>{stack}</span>
                   ))}
                 </div>
+
+                <Link
+                  className="text-link"
+                  href={projectHref}
+                  style={{ marginTop: "20px", marginBottom: 0 }}
+                >
+                  Open project →
+                </Link>
               </div>
             </article>
           );

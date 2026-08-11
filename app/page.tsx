@@ -11,6 +11,23 @@ function getProjectThumbnail(title: string) {
   return `/images/thumbnail_${fileName}.png`;
 }
 
+const projectRoutes: Record<string, string> = {
+  "Transport Delivery Precision Platform": "/projects/transport-delivery-precision-platform",
+  "Weekly Workforce Snapshot": "/projects/weekly-workforce-snapshot",
+  "Andon Screens": "/projects/andon-screens",
+};
+
+function getProjectHref(title: string) {
+  return (
+    projectRoutes[title] ??
+    `/projects/${title
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")}`
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -19,7 +36,6 @@ export default function Home() {
       ========================== */}
       <section className="hero">
         <div className="hero-left">
-          {/* PHOTO */}
           <div className="hero-photo-wrap">
             <img
               src="/images/profile.png"
@@ -28,7 +44,6 @@ export default function Home() {
             />
           </div>
 
-          {/* INTRO CARD */}
           <div className="hero-card">
             <span className="eyebrow hero-eyebrow">
               ✦ DATA ENGINEERING · ANALYTICS · PRODUCT THINKING
@@ -63,7 +78,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* VIDEO */}
         <aside className="hero-video">
           <div className="video-frame">
             <button
@@ -106,9 +120,7 @@ export default function Home() {
         <div className="section-heading split-heading">
           <div>
             <span className="eyebrow">Featured Projects</span>
-
             <h2>Data products built for real operations.</h2>
-
             <p>
               Reliable pipelines, analytical models and reporting systems
               designed around real business workflows.
@@ -121,34 +133,54 @@ export default function Home() {
         </div>
 
         <div className="projects-grid featured-grid">
-          {featuredProjects.map((project) => (
-            <article className="project-card" key={project.title}>
-              <div className={`project-visual ${project.accent}`}>
-                <div
-                  className="project-thumbnail"
-                  style={{
-                    backgroundImage: `url("${getProjectThumbnail(project.title)}")`,
-                  }}
-                />
+          {featuredProjects.map((project) => {
+            const projectHref = getProjectHref(project.title);
 
-                <div className="project-visual-overlay" />
-              </div>
+            return (
+              <article className="project-card" key={project.title}>
+                <Link
+                  href={projectHref}
+                  aria-label={`Open ${project.title}`}
+                >
+                  <div className={`project-visual ${project.accent}`}>
+                    <div
+                      className="project-thumbnail"
+                      style={{
+                        backgroundImage: `url("${getProjectThumbnail(
+                          project.title
+                        )}")`,
+                      }}
+                    />
+                    <div className="project-visual-overlay" />
+                  </div>
+                </Link>
 
-              <div className="project-card-body">
-                <span className="pill">{project.category}</span>
+                <div className="project-card-body">
+                  <span className="pill">{project.category}</span>
 
-                <h3>{project.title}</h3>
+                  <h3>
+                    <Link href={projectHref}>{project.title}</Link>
+                  </h3>
 
-                <p>{project.description}</p>
+                  <p>{project.description}</p>
 
-                <div className="stack-list">
-                  {project.stack.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
+                  <div className="stack-list">
+                    {project.stack.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
+
+                  <Link
+                    className="text-link"
+                    href={projectHref}
+                    style={{ marginTop: "18px", marginBottom: 0 }}
+                  >
+                    View project →
+                  </Link>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </section>
 
@@ -159,7 +191,6 @@ export default function Home() {
         <div className="section-shell two-column-layout">
           <div>
             <span className="eyebrow">Experience</span>
-
             <h2>Engineering mindset, analytics focus.</h2>
 
             <p className="section-copy">
@@ -176,13 +207,9 @@ export default function Home() {
                 key={`${item.role}-${item.period}`}
               >
                 <span className="timeline-dot" />
-
                 <span className="timeline-period">{item.period}</span>
-
                 <h3>{item.role}</h3>
-
                 <div className="timeline-company">{item.company}</div>
-
                 <p>{item.description}</p>
               </article>
             ))}
