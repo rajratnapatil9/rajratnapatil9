@@ -1,0 +1,396 @@
+/* =========================================================
+   ABOUT PAGE — CLEAN ISOLATED DESIGN
+   Use with: import styles from "./about.module.css";
+   ========================================================= */
+
+.aboutRoot {
+  --bg: #f4f7fa;
+  --surface: #ffffff;
+  --surface-soft: #eef3f7;
+  --ink: #141922;
+  --muted: #68727f;
+  --line: #d8dee5;
+  --accent: #3477e3;
+  --dark: #111820;
+
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.aboutRoot *,
+.aboutRoot *::before,
+.aboutRoot *::after {
+  box-sizing: border-box;
+}
+
+.aboutRoot img {
+  display: block;
+  max-width: 100%;
+}
+
+.aboutRoot h1,
+.aboutRoot h2,
+.aboutRoot h3,
+.aboutRoot p {
+  margin-top: 0;
+}
+
+.shell {
+  width: min(1160px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* =========================================================
+   ABOUT HERO
+   ========================================================= */
+
+.pageHero {
+  padding-top: 58px;
+  padding-bottom: 42px;
+}
+
+.eyebrow,
+.sectionEyebrow {
+  display: block;
+  margin-bottom: 10px;
+
+  color: var(--accent);
+
+  font-size: 0.58rem;
+  font-weight: 820;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.pageHero h1 {
+  max-width: 760px;
+  margin-bottom: 0;
+
+  color: var(--ink);
+
+  font-size: clamp(2rem, 2.7vw, 2.55rem);
+  line-height: 1.04;
+  letter-spacing: -0.038em;
+  font-weight: 720;
+}
+
+.pageHero h1 span {
+  color: var(--accent);
+}
+
+.pageHero > p {
+  max-width: 720px;
+  margin: 18px 0 0;
+
+  color: var(--muted);
+
+  font-size: 0.82rem;
+  line-height: 1.62;
+}
+
+/* =========================================================
+   ABOUT INTRO
+   ========================================================= */
+
+.aboutSection {
+  padding-bottom: 60px;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  gap: 42px;
+  align-items: start;
+}
+
+.aboutPhoto {
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+  border-radius: 16px;
+
+  background: #e7edf3;
+}
+
+.aboutPhoto img {
+  width: 100%;
+  aspect-ratio: 4 / 4.7;
+
+  object-fit: cover;
+  object-position: center top;
+}
+
+.aboutCopy {
+  padding-top: 6px;
+}
+
+.aboutCopy h2 {
+  max-width: 720px;
+  margin-bottom: 0;
+
+  color: var(--ink);
+
+  font-size: 1.42rem;
+  line-height: 1.14;
+  letter-spacing: -0.028em;
+  font-weight: 700;
+}
+
+.aboutCopy p {
+  max-width: 760px;
+  margin: 15px 0 0;
+
+  color: var(--muted);
+
+  font-size: 0.74rem;
+  line-height: 1.62;
+}
+
+.skillCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  margin-top: 22px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--line);
+}
+
+.skillCloud span {
+  padding: 6px 9px;
+
+  border: 1px solid var(--line);
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.72);
+  color: #5f6975;
+
+  font-size: 0.56rem;
+  font-weight: 680;
+}
+
+/* =========================================================
+   COMMON SECTION
+   ========================================================= */
+
+.section {
+  padding-top: 52px;
+  padding-bottom: 58px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+
+  margin-bottom: 20px;
+}
+
+.sectionHeader .sectionEyebrow {
+  margin-bottom: 6px;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+
+  color: var(--ink);
+
+  font-size: 1.28rem;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 690;
+}
+
+/* =========================================================
+   EXPERIENCE
+   ========================================================= */
+
+.experienceSection {
+  padding: 50px 0 54px;
+
+  background: var(--dark);
+  color: #ffffff;
+}
+
+.experienceSection .sectionEyebrow {
+  color: #93bdff;
+}
+
+.experienceSection .sectionHeader h2 {
+  color: #f7f9fb;
+}
+
+.experienceList {
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.experienceRow {
+  display: grid;
+  grid-template-columns: 135px 255px 1fr;
+  gap: 22px;
+  align-items: start;
+
+  padding: 20px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.period {
+  color: #8f98a4;
+
+  font-size: 0.57rem;
+  font-weight: 700;
+}
+
+.role h3 {
+  margin: 0 0 3px;
+
+  color: #ffffff;
+
+  font-size: 0.80rem;
+  font-weight: 700;
+}
+
+.role span {
+  color: #8d96a2;
+
+  font-size: 0.55rem;
+}
+
+.experienceRow > p {
+  max-width: 640px;
+  margin: 0;
+
+  color: #9fa7b1;
+
+  font-size: 0.62rem;
+  line-height: 1.48;
+}
+
+/* =========================================================
+   EDUCATION
+   ========================================================= */
+
+.educationGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.educationCard {
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  gap: 16px;
+  align-items: start;
+
+  padding: 17px;
+
+  border: 1px solid var(--line);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.educationCard h3 {
+  margin: 0 0 4px;
+
+  color: var(--ink);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.educationCard p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.60rem;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .shell {
+    width: min(100% - 36px, 1160px);
+  }
+
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .aboutPhoto {
+    max-width: 520px;
+  }
+
+  .experienceRow {
+    grid-template-columns: 115px 215px 1fr;
+    gap: 18px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 28px, 1160px);
+  }
+
+  .pageHero {
+    padding-top: 42px;
+    padding-bottom: 34px;
+  }
+
+  .pageHero h1 {
+    font-size: clamp(1.85rem, 8vw, 2.2rem);
+  }
+
+  .aboutSection {
+    padding-bottom: 48px;
+  }
+
+  .aboutCopy h2 {
+    font-size: 1.18rem;
+  }
+
+  .section {
+    padding-top: 48px;
+    padding-bottom: 52px;
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .experienceRow {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .educationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .educationCard {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }

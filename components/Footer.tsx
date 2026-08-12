@@ -3,7 +3,7 @@ import { site } from "@/data/site";
 export default function Footer() {
   return (
     <footer className="footer" id="contact">
-      <div className="footer-shell">
+      {/* <div className="footer-shell">
         <div>
           <span className="eyebrow light">Open to meaningful data problems</span>
           <h2>Build reliable data. Make it useful.</h2>
@@ -17,7 +17,7 @@ export default function Footer() {
           <a href={site.github} target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
         </div>
       </div>
-      <div className="footer-bottom">© {new Date().getFullYear()} {site.name}. Built with Next.js.</div>
+      <div className="footer-bottom">© {new Date().getFullYear()} {site.name}. Built with Next.js.</div> */}
     </footer>
   );
 }
