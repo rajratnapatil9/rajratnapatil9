@@ -377,39 +377,148 @@
 
 .primaryButton,
 .secondaryButton {
-  min-height: 36px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 
-  padding: 0 12px;
+  min-height: 40px;
+  padding: 0 16px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
 
-  border-radius: 8px;
+  border: 1px solid rgba(168, 214, 255, 0.30);
+  border-radius: 9px;
+
+  /* Smoky dark glass resting state */
+  background:
+    linear-gradient(
+      135deg,
+      rgba(18, 32, 52, 0.62),
+      rgba(31, 52, 77, 0.38)
+    );
+
+  color: #f7fbff !important;
 
   font-size: 0.63rem;
-  font-weight: 730;
+  font-weight: 740;
+  letter-spacing: -0.005em;
+
+  -webkit-backdrop-filter: blur(14px) saturate(125%);
+  backdrop-filter: blur(14px) saturate(125%);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.02),
+    0 5px 14px rgba(0, 0, 0, 0.12);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.28s cubic-bezier(.2,.8,.2,1),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    color 0.28s ease;
 }
 
-.primaryButton {
-  border: 1px solid #ffffff;
+/* left-to-right teal/cyan glass layer */
+.primaryButton::after,
+.secondaryButton::after {
+  content: "";
 
-  background: #ffffff;
+  position: absolute;
+  z-index: -1;
 
-  color: #0d2744 !important;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      105deg,
+      #1f5675 0%,
+      #287294 45%,
+      #3496b5 75%,
+      #54bfd0 100%
+    );
+
+  transform: translateX(-102%);
+
+  transition:
+    transform 0.40s cubic-bezier(.2,.8,.2,1);
+
+  pointer-events: none;
 }
 
-.primaryButton span {
-  color: var(--accent);
+/* subtle animated cyan accent */
+.primaryButton::before,
+.secondaryButton::before {
+  content: "";
+
+  position: absolute;
+
+  left: 13px;
+  right: 13px;
+  bottom: 0;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #54bfd0,
+      #a8ecf4,
+      transparent
+    );
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  opacity: 0.95;
+
+  transition:
+    transform 0.34s cubic-bezier(.2,.8,.2,1);
+
+  pointer-events: none;
 }
 
-.secondaryButton {
-  border: 1px solid rgba(255, 255, 255, 0.22);
+@media (hover: hover) {
+  .primaryButton:hover,
+  .secondaryButton:hover {
+    transform: translateY(-2px);
 
-  background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(111, 220, 235, 0.72);
 
-  color: #ffffff;
+    color: #ffffff !important;
+
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      0 10px 22px rgba(0, 0, 0, 0.20),
+      0 0 18px rgba(84, 191, 208, 0.13);
+  }
+
+  .primaryButton:hover::after,
+  .secondaryButton:hover::after {
+    transform: translateX(0);
+  }
+
+  .primaryButton:hover::before,
+  .secondaryButton:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+.primaryButton:active,
+.secondaryButton:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.08s;
+}
+
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible {
+  outline: 2px solid #79d7e2;
+  outline-offset: 3px;
 }
 
 .focusRow {
@@ -1296,54 +1405,5 @@
 
   .educationCard {
     grid-template-columns: 1fr;
-  }
-}
-
-/* =========================================================
-   NARROW PHONE
-   ========================================================= */
-
-@media (max-width: 520px) {
-  .heroPanel {
-    height: 455px;
-  }
-
-  .profileCopy {
-    width: 100%;
-
-    justify-content: flex-start;
-
-    padding: 24px 20px 190px;
-  }
-
-  .profileCopy h1 {
-    max-width: 220px;
-
-    font-size: 1.95rem;
-  }
-
-  .profileCopy > p {
-    max-width: 285px;
-  }
-
-  .portraitStage {
-    right: 0;
-    top: auto;
-    bottom: 0;
-
-    width: 58%;
-    height: 205px;
-  }
-
-  .profileImage {
-    right: 2px;
-    bottom: -2px;
-
-    width: min(108%, 205px);
-    max-height: 100%;
-  }
-
-  .videoInner {
-    min-height: 355px;
   }
 }
