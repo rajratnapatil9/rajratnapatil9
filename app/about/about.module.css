@@ -1,20 +1,25 @@
 /* =========================================================
-   ABOUT PAGE — CLEAN ISOLATED DESIGN
-   Use with: import styles from "./about.module.css";
+   ABOUT PAGE
+   CLEAN DROP-IN REPLACEMENT
    ========================================================= */
 
 .aboutRoot {
-  --bg: #f4f7fa;
+  --page: #f4f7fa;
   --surface: #ffffff;
   --surface-soft: #eef3f7;
-  --ink: #141922;
-  --muted: #68727f;
+
+  --ink: #121820;
+  --muted: #69727d;
+
   --line: #d8dee5;
+  --line-strong: #c4cdd6;
+
   --accent: #3477e3;
-  --dark: #111820;
 
   min-height: 100vh;
-  background: var(--bg);
+  overflow-x: hidden;
+
+  background: var(--page);
   color: var(--ink);
 
   font-family:
@@ -45,161 +50,279 @@
   margin-top: 0;
 }
 
+.aboutRoot a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .shell {
   width: min(1160px, calc(100% - 48px));
   margin-inline: auto;
 }
 
+
 /* =========================================================
-   ABOUT HERO
+   COMMON
    ========================================================= */
 
-.pageHero {
-  padding-top: 58px;
-  padding-bottom: 42px;
-}
-
-.eyebrow,
 .sectionEyebrow {
   display: block;
-  margin-bottom: 10px;
+
+  margin-bottom: 8px;
 
   color: var(--accent);
 
-  font-size: 0.58rem;
+  font-size: 0.56rem;
   font-weight: 820;
   letter-spacing: 0.11em;
+
   text-transform: uppercase;
 }
 
-.pageHero h1 {
-  max-width: 760px;
-  margin-bottom: 0;
-
-  color: var(--ink);
-
-  font-size: clamp(2rem, 2.7vw, 2.55rem);
-  line-height: 1.04;
-  letter-spacing: -0.038em;
-  font-weight: 720;
-}
-
-.pageHero h1 span {
-  color: var(--accent);
-}
-
-.pageHero > p {
-  max-width: 720px;
-  margin: 18px 0 0;
-
-  color: var(--muted);
-
-  font-size: 0.82rem;
-  line-height: 1.62;
-}
 
 /* =========================================================
    ABOUT INTRO
    ========================================================= */
 
-.aboutSection {
-  padding-bottom: 60px;
+.aboutIntro {
+  padding: 50px 0 62px;
 }
 
 .aboutGrid {
   display: grid;
-  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
-  gap: 42px;
+
+  grid-template-columns:
+    minmax(270px, 0.72fr)
+    minmax(0, 1.28fr);
+
+  gap: clamp(42px, 6vw, 76px);
+
   align-items: start;
 }
 
-.aboutPhoto {
-  overflow: hidden;
 
-  border: 1px solid var(--line);
-  border-radius: 16px;
+/* =========================================================
+   PORTRAIT
+   BEACH / COASTAL AMOEBA
+   ========================================================= */
 
-  background: #e7edf3;
-}
 
-.aboutPhoto img {
-  width: 100%;
-  aspect-ratio: 4 / 4.7;
 
-  object-fit: cover;
-  object-position: center top;
-}
+
+/* sand layer */
+
+
+
+
+/* ocean / seafoam layer */
+
+
+
+
+
+
+
+/* sunset coral layer */
+
+
+
+
+/* sun */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   PORTRAIT ANIMATIONS
+   ========================================================= */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   ABOUT COPY
+   ========================================================= */
 
 .aboutCopy {
-  padding-top: 6px;
+  padding-top: 3px;
 }
 
-.aboutCopy h2 {
-  max-width: 720px;
-  margin-bottom: 0;
+.aboutCopy h1 {
+  max-width: 680px;
+
+  margin: 0;
 
   color: var(--ink);
 
-  font-size: 1.42rem;
-  line-height: 1.14;
-  letter-spacing: -0.028em;
-  font-weight: 700;
+  font-size: clamp(1.85rem, 2.6vw, 2.35rem);
+  line-height: 1.04;
+
+  letter-spacing: -0.042em;
+  font-weight: 720;
 }
 
-.aboutCopy p {
-  max-width: 760px;
-  margin: 15px 0 0;
+.aboutCopy > p {
+  max-width: 720px;
+
+  margin: 14px 0 0;
 
   color: var(--muted);
 
-  font-size: 0.74rem;
-  line-height: 1.62;
+  font-size: 0.72rem;
+  line-height: 1.63;
+}
+
+.aboutCopy .introLead {
+  margin-top: 18px;
+
+  color: #4e5965;
+
+  font-size: 0.79rem;
+  line-height: 1.58;
+}
+
+
+/* =========================================================
+   PRINCIPLES
+   ========================================================= */
+
+.principleGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  margin-top: 26px;
+
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.principleGrid > div {
+  min-width: 0;
+
+  padding: 16px 15px 17px 0;
+}
+
+.principleGrid > div + div {
+  padding-left: 15px;
+
+  border-left: 1px solid var(--line);
+}
+
+.principleGrid span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--accent);
+
+  font-size: 0.49rem;
+  font-weight: 820;
+}
+
+.principleGrid strong {
+  display: block;
+
+  color: var(--ink);
+
+  font-size: 0.68rem;
+  font-weight: 720;
+}
+
+.principleGrid p {
+  margin: 5px 0 0;
+
+  color: var(--muted);
+
+  font-size: 0.56rem;
+  line-height: 1.48;
+}
+
+
+/* =========================================================
+   TECH STACK
+   ========================================================= */
+
+.stackRow {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 18px;
+}
+
+.stackLabel {
+  flex: 0 0 auto;
+
+  color: #8b949e;
+
+  font-size: 0.49rem;
+  font-weight: 820;
+  letter-spacing: 0.08em;
 }
 
 .skillCloud {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
 
-  margin-top: 22px;
-  padding-top: 18px;
-
-  border-top: 1px solid var(--line);
+  gap: 6px;
 }
 
 .skillCloud span {
-  padding: 6px 9px;
+  padding: 5px 8px;
 
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: 6px;
 
-  background: rgba(255, 255, 255, 0.72);
-  color: #5f6975;
+  background:
+    rgba(255, 255, 255, 0.78);
 
-  font-size: 0.56rem;
+  color: #626d78;
+
+  font-size: 0.51rem;
   font-weight: 680;
 }
 
-/* =========================================================
-   COMMON SECTION
-   ========================================================= */
 
-.section {
-  padding-top: 52px;
-  padding-bottom: 58px;
-}
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
 
 .sectionHeader {
   display: flex;
+
   align-items: end;
   justify-content: space-between;
-  gap: 24px;
 
-  margin-bottom: 20px;
-}
+  gap: 30px;
 
-.sectionHeader .sectionEyebrow {
-  margin-bottom: 6px;
+  margin-bottom: 24px;
 }
 
 .sectionHeader h2 {
@@ -207,190 +330,2362 @@
 
   color: var(--ink);
 
-  font-size: 1.28rem;
+  font-size: 1.27rem;
   line-height: 1.1;
-  letter-spacing: -0.025em;
+
+  letter-spacing: -0.026em;
   font-weight: 690;
 }
 
-/* =========================================================
-   EXPERIENCE
-   ========================================================= */
+.sectionHeader > p {
+  max-width: 340px;
 
-.experienceSection {
-  padding: 50px 0 54px;
-
-  background: var(--dark);
-  color: #ffffff;
-}
-
-.experienceSection .sectionEyebrow {
-  color: #93bdff;
-}
-
-.experienceSection .sectionHeader h2 {
-  color: #f7f9fb;
-}
-
-.experienceList {
-  border-top: 1px solid rgba(255, 255, 255, 0.13);
-}
-
-.experienceRow {
-  display: grid;
-  grid-template-columns: 135px 255px 1fr;
-  gap: 22px;
-  align-items: start;
-
-  padding: 20px 0;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
-}
-
-.period {
-  color: #8f98a4;
-
-  font-size: 0.57rem;
-  font-weight: 700;
-}
-
-.role h3 {
-  margin: 0 0 3px;
-
-  color: #ffffff;
-
-  font-size: 0.80rem;
-  font-weight: 700;
-}
-
-.role span {
-  color: #8d96a2;
-
-  font-size: 0.55rem;
-}
-
-.experienceRow > p {
-  max-width: 640px;
-  margin: 0;
-
-  color: #9fa7b1;
-
-  font-size: 0.62rem;
-  line-height: 1.48;
-}
-
-/* =========================================================
-   EDUCATION
-   ========================================================= */
-
-.educationGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 13px;
-}
-
-.educationCard {
-  display: grid;
-  grid-template-columns: 105px 1fr;
-  gap: 16px;
-  align-items: start;
-
-  padding: 17px;
-
-  border: 1px solid var(--line);
-  border-radius: 10px;
-
-  background: rgba(255, 255, 255, 0.72);
-}
-
-.educationCard h3 {
-  margin: 0 0 4px;
-
-  color: var(--ink);
-
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.educationCard p {
   margin: 0;
 
   color: var(--muted);
 
-  font-size: 0.60rem;
+  font-size: 0.6rem;
+  line-height: 1.48;
 }
+
+
+/* =========================================================
+   JOURNEY SECTION
+   ========================================================= */
+
+.journeySection {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 48px 0 54px;
+
+  border-top:
+    1px solid
+    rgba(18, 24, 32, 0.07);
+
+  border-bottom:
+    1px solid
+    rgba(18, 24, 32, 0.07);
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(89, 178, 202, 0.07),
+      transparent 35rem
+    ),
+    linear-gradient(
+      180deg,
+      #f8fafb 0%,
+      #edf3f6 100%
+    );
+}
+
+
+.journeyHeader {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: end;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 5px;
+}
+
+.journeyHeader h2 {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: var(--ink);
+
+  font-size: 1.28rem;
+  line-height: 1.1;
+
+  letter-spacing: -0.028em;
+  font-weight: 700;
+}
+
+.journeyHeader > p {
+  max-width: 330px;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.59rem;
+  line-height: 1.48;
+}
+
+
+/* =========================================================
+   DESKTOP / MOBILE SWITCH
+   ========================================================= */
+
+.desktopJourney {
+  display: block;
+
+  position: relative;
+
+  width: 100%;
+}
+
+.mobileJourney {
+  display: none;
+}
+
+
+/* =========================================================
+   DESKTOP JOURNEY CANVAS
+   ========================================================= */
+
+.journeyCanvas {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  height: 440px;
+
+  margin: 3px 0 0;
+}
+
+.journeyRoad {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+.roadOuter {
+  fill: none;
+
+  stroke: #d8e2e8;
+  stroke-width: 17;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.roadPath {
+  fill: none;
+
+  stroke: #84919d;
+  stroke-width: 2;
+
+  stroke-linecap: round;
+
+  stroke-dasharray: 11 14;
+
+  animation:
+    roadMove
+    7s
+    linear
+    infinite;
+}
+
+@keyframes roadMove {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -150;
+  }
+}
+
+
+.roadTraveler {
+  filter:
+    drop-shadow(
+      0 5px 9px
+      rgba(52, 119, 227, 0.3)
+    );
+}
+
+.travelerOuter {
+  fill: #ffffff;
+
+  stroke: var(--accent);
+  stroke-width: 4;
+}
+
+.travelerInner {
+  fill: var(--accent);
+}
+
+
+/* =========================================================
+   DESKTOP JOURNEY STOP
+   ========================================================= */
+
+.journeyStop {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  z-index: 5;
+
+  width: 198px;
+
+  transform:
+    translateX(-50%);
+
+  opacity: 0;
+
+  animation:
+    journeyReveal
+    0.65s
+    cubic-bezier(0.2, 0.8, 0.2, 1)
+    forwards;
+}
+
+
+@keyframes journeyReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+}
+
+
+.journeyCard {
+  position: absolute;
+
+  left: 50%;
+
+  width: 198px;
+  min-height: 148px;
+
+  padding: 13px 14px 14px;
+
+  transform:
+    translateX(-50%);
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(166, 181, 194, 0.58);
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(248, 251, 253, 0.95)
+    );
+
+  box-shadow:
+    0 10px 27px
+    rgba(18, 31, 43, 0.06);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+.journeyCard::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 17px;
+  right: 17px;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(52, 119, 227, 0.9),
+      transparent
+    );
+}
+
+
+.journeyStopTop .journeyCard {
+  top: 5px;
+}
+
+.journeyStopBottom .journeyCard {
+  top: 282px;
+}
+
+.journeyCard:hover {
+  transform:
+    translateX(-50%)
+    translateY(-4px);
+
+  border-color:
+    rgba(52, 119, 227, 0.38);
+
+  box-shadow:
+    0 16px 34px
+    rgba(18, 31, 43, 0.09);
+}
+
+
+.journeyCardTop {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  min-height: 50px;
+
+  margin-bottom: 7px;
+}
+
+
+/* =========================================================
+   DESKTOP LOGOS
+   ========================================================= */
+
+.journeyLogo {
+  width: 58px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  flex: 0 0 auto;
+}
+
+.journeyLogo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: left center;
+}
+
+
+.journeyCard:has(img[src*="bosch"])
+.journeyLogo {
+  width: 72px;
+  height: 48px;
+}
+
+.journeyCard:has(img[src*="volvo"])
+.journeyLogo {
+  width: 54px;
+  height: 54px;
+}
+
+.journeyCard:has(img[src*="wayne"])
+.journeyLogo,
+.journeyCard:has(img[src*="pune"])
+.journeyLogo {
+  width: 53px;
+  height: 53px;
+}
+
+
+.journeyType {
+  flex: 0 0 auto;
+
+  padding: 5px 7px;
+
+  border:
+    1px solid
+    rgba(52, 119, 227, 0.17);
+
+  border-radius: 6px;
+
+  background:
+    rgba(52, 119, 227, 0.06);
+
+  color: var(--accent);
+
+  font-size: 0.43rem;
+  font-weight: 820;
+  letter-spacing: 0.065em;
+
+  text-transform: uppercase;
+}
+
+.journeyPeriod {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #87929e;
+
+  font-size: 0.48rem;
+  font-weight: 720;
+}
+
+.journeyCard h3 {
+  margin: 0;
+
+  color: var(--ink);
+
+  font-size: 0.69rem;
+  line-height: 1.25;
+
+  font-weight: 750;
+}
+
+.journeyCard p {
+  margin: 4px 0 0;
+
+  color: var(--muted);
+
+  font-size: 0.51rem;
+  line-height: 1.4;
+}
+
+
+/* connector */
+
+.journeyStop::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  z-index: 2;
+
+  width: 1px;
+
+  transform:
+    translateX(-50%);
+}
+
+.journeyStopTop::before {
+  top: 154px;
+
+  height: 42px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(52, 119, 227, 0.12),
+      rgba(52, 119, 227, 0.65)
+    );
+}
+
+.journeyStopBottom::before {
+  top: 226px;
+
+  height: 57px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(52, 119, 227, 0.65),
+      rgba(52, 119, 227, 0.12)
+    );
+}
+
+
+/* marker */
+
+.journeyMarker {
+  position: absolute;
+
+  top: 194px;
+  left: 50%;
+
+  z-index: 8;
+
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  transform:
+    translateX(-50%);
+
+  border:
+    4px solid
+    #f0f5f8;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #468af1,
+      #286bd6
+    );
+
+  box-shadow:
+    0 0 0 1px
+      rgba(52, 119, 227, 0.17),
+    0 5px 14px
+      rgba(52, 119, 227, 0.22);
+
+  animation:
+    markerPulse
+    3.2s
+    ease-in-out
+    infinite;
+}
+
+.journeyMarker span {
+  color: #ffffff;
+
+  font-size: 0.43rem;
+  font-weight: 850;
+}
+
+
+@keyframes markerPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px
+        rgba(52, 119, 227, 0.15),
+      0 5px 13px
+        rgba(52, 119, 227, 0.18);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 7px
+        rgba(52, 119, 227, 0.07),
+      0 7px 18px
+        rgba(52, 119, 227, 0.24);
+  }
+}
+
+
+/* =========================================================
+   OLD JOURNEY SCROLLER
+   Kept harmless in case wrapper still exists
+   ========================================================= */
+
+.journeyScroller {
+  width: 100%;
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   CLOSE
+   ========================================================= */
+
+.closeSection {
+  padding: 47px 0 51px;
+
+  border-top:
+    1px solid
+    rgba(18, 24, 32, 0.07);
+
+  background:
+    linear-gradient(
+      180deg,
+      #e7eef4 0%,
+      #dde8f0 100%
+    );
+}
+
+.closeGrid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(280px, 0.85fr);
+
+  gap: 64px;
+
+  align-items: end;
+}
+
+.closeSection h2 {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: var(--ink);
+
+  font-size: 1.34rem;
+  line-height: 1.08;
+
+  letter-spacing: -0.029em;
+  font-weight: 700;
+}
+
+.closeCopy {
+  max-width: 410px;
+}
+
+.closeCopy p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.64rem;
+  line-height: 1.52;
+}
+
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 13px;
+  padding-bottom: 3px;
+
+  border-bottom:
+    1px solid
+    #9aa8b5;
+
+  color: var(--ink);
+
+  font-size: 0.62rem;
+  font-weight: 730;
+}
+
+.projectLink span {
+  color: var(--accent);
+}
+
 
 /* =========================================================
    TABLET
    ========================================================= */
 
 @media (max-width: 900px) {
+
   .shell {
-    width: min(100% - 36px, 1160px);
+    width:
+      min(
+        100% - 36px,
+        1160px
+      );
   }
 
   .aboutGrid {
+    grid-template-columns:
+      minmax(230px, 0.65fr)
+      minmax(0, 1.35fr);
+
+    gap: 34px;
+  }
+
+  
+
+  
+
+  
+
+  .principleGrid {
     grid-template-columns: 1fr;
-    gap: 28px;
   }
 
-  .aboutPhoto {
-    max-width: 520px;
+  .principleGrid > div {
+    padding: 13px 0;
   }
 
-  .experienceRow {
-    grid-template-columns: 115px 215px 1fr;
-    gap: 18px;
+  .principleGrid > div + div {
+    padding-left: 0;
+
+    border-left: 0;
+    border-top:
+      1px solid
+      var(--line);
+  }
+
+  .journeyHeader {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .closeGrid {
+    gap: 40px;
   }
 }
+
 
 /* =========================================================
    MOBILE
    ========================================================= */
 
 @media (max-width: 760px) {
+
+  /* =======================================================
+     GLOBAL
+     ======================================================= */
+
   .shell {
-    width: min(100% - 28px, 1160px);
+    width:
+      min(
+        100% - 28px,
+        1160px
+      );
   }
 
-  .pageHero {
-    padding-top: 42px;
-    padding-bottom: 34px;
+
+  /* =======================================================
+     ABOUT
+     ======================================================= */
+
+  .aboutIntro {
+    padding:
+      28px
+      0
+      42px;
   }
 
-  .pageHero h1 {
-    font-size: clamp(1.85rem, 8vw, 2.2rem);
+  .aboutGrid {
+    grid-template-columns: 1fr;
+
+    gap: 34px;
   }
 
-  .aboutSection {
-    padding-bottom: 48px;
+  
+
+  
+
+  
+
+  
+
+  
+
+  .aboutCopy {
+    padding-top: 0;
   }
 
-  .aboutCopy h2 {
-    font-size: 1.18rem;
+  .aboutCopy h1 {
+    max-width: 520px;
+
+    font-size:
+      clamp(
+        1.45rem,
+        6.2vw,
+        1.72rem
+      );
+
+    line-height: 1.07;
   }
 
-  .section {
-    padding-top: 48px;
-    padding-bottom: 52px;
+  .aboutCopy .introLead {
+    margin-top: 14px;
+
+    font-size: 0.68rem;
   }
 
-  .sectionHeader {
+  .aboutCopy > p {
+    margin-top: 11px;
+
+    font-size: 0.63rem;
+    line-height: 1.56;
+  }
+
+  .principleGrid {
+    margin-top: 21px;
+  }
+
+  .principleGrid > div {
+    padding: 11px 0;
+  }
+
+  .principleGrid span {
+    margin-bottom: 5px;
+
+    font-size: 0.45rem;
+  }
+
+  .principleGrid strong {
+    font-size: 0.63rem;
+  }
+
+  .principleGrid p {
+    margin-top: 3px;
+
+    font-size: 0.53rem;
+  }
+
+  .stackRow {
     align-items: flex-start;
     flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 15px;
+  }
+
+  .skillCloud span {
+    padding: 4px 7px;
+
+    font-size: 0.48rem;
+  }
+
+
+  /* =======================================================
+     JOURNEY SECTION
+     ======================================================= */
+
+  .journeySection {
+    width: 100%;
+
+    overflow: hidden;
+
+    padding:
+      37px
+      0
+      40px;
+  }
+
+  /*
+     Journey gets its own full-width layout.
+     Header gets normal page padding separately.
+  */
+
+  .journeySection > .shell {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+  }
+
+
+  /* =======================================================
+     JOURNEY HEADER
+     ======================================================= */
+
+  .journeyHeader {
+    display: block;
+
+    width:
+      calc(
+        100% - 32px
+      );
+
+    margin:
+      0
+      auto
+      18px;
+  }
+
+  .journeyHeader h2 {
+    max-width: 100%;
+
+    margin: 0;
+
+    font-size:
+      clamp(
+        1.02rem,
+        4.9vw,
+        1.2rem
+      );
+
+    line-height: 1.15;
+
+    letter-spacing:
+      -0.026em;
+  }
+
+  .journeyHeader > p {
+    max-width: 100%;
+
+    margin:
+      9px
+      0
+      0;
+
+    font-size: 0.56rem;
+    line-height: 1.5;
+  }
+
+  .journeyHeader::after {
+    display: none !important;
+
+    content: none !important;
+  }
+
+
+  /* =======================================================
+     SWITCH
+     ======================================================= */
+
+  .desktopJourney {
+    display: none !important;
+  }
+
+  .mobileJourney {
+    display: block;
+
+    width: 100%;
+  }
+
+
+  /* =======================================================
+     SWIPE HINT
+     ======================================================= */
+
+  .mobileJourneyHint {
+    width:
+      calc(
+        100% - 32px
+      );
+
+    margin:
+      0
+      auto
+      14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--accent);
+
+    font-size: 0.51rem;
+    font-weight: 760;
+  }
+
+  .mobileJourneyHint span {
+    display: inline-block;
+
+    animation:
+      swipeArrow
+      1.4s
+      ease-in-out
+      infinite;
+  }
+
+
+  @keyframes swipeArrow {
+    0%,
+    100% {
+      transform:
+        translateX(0);
+    }
+
+    50% {
+      transform:
+        translateX(6px);
+    }
+  }
+
+
+  /* =======================================================
+     MOBILE SCROLLER
+     ======================================================= */
+
+  .mobileJourneyScroller {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type:
+      x mandatory;
+
+    scroll-behavior:
+      smooth;
+
+    overscroll-behavior-x:
+      contain;
+
+    -webkit-overflow-scrolling:
+      touch;
+
+    scrollbar-width:
+      none;
+
+    touch-action:
+      pan-x;
+  }
+
+  .mobileJourneyScroller::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  /* =======================================================
+     TRACK
+     ======================================================= */
+
+  .mobileJourneyTrack {
+    display: flex;
+
+    width: max-content;
+
+    gap: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =======================================================
+     EACH SLIDE = EXACT WIDTH OF SCROLLER
+
+     No 82vw.
+     No preview of next card.
+     No clipping.
+     ======================================================= */
+
+  .mobileJourneyStage {
+    position: relative;
+
+    flex:
+      0
+      0
+      100vw;
+
+    width: 100vw;
+    min-width: 100vw;
+
+    padding:
+      31px
+      28px
+      0;
+
+    scroll-snap-align:
+      start;
+
+    scroll-snap-stop:
+      always;
+  }
+
+
+  /* =======================================================
+     NUMBER
+     ======================================================= */
+
+  .mobileJourneyNumber {
+    position: absolute;
+
+    z-index: 10;
+
+    top: 13px;
+    left: 45px;
+
+    width: 36px;
+    height: 36px;
+
+    display: grid;
+    place-items: center;
+
+    border:
+      4px solid
+      #eef5fb;
+
+    border-radius: 50%;
+
+    background:
+      linear-gradient(
+        145deg,
+        #4a8bf1,
+        #286bd7
+      );
+
+    color: #ffffff;
+
+    font-size: 0.43rem;
+    font-weight: 850;
+
+    box-shadow:
+      0 0 0 1px
+        rgba(52, 119, 227, 0.16),
+      0 6px 15px
+        rgba(52, 119, 227, 0.18);
+
+    animation:
+      mobileNumberPulse
+      3s
+      ease-in-out
+      infinite;
+  }
+
+
+  @keyframes mobileNumberPulse {
+    0%,
+    100% {
+      box-shadow:
+        0 0 0 1px
+          rgba(52, 119, 227, 0.16),
+        0 6px 15px
+          rgba(52, 119, 227, 0.18);
+    }
+
+    50% {
+      box-shadow:
+        0 0 0 7px
+          rgba(52, 119, 227, 0.07),
+        0 7px 18px
+          rgba(52, 119, 227, 0.22);
+    }
+  }
+
+
+  /* =======================================================
+     CARD
+     ======================================================= */
+
+  .mobileJourneyCard {
+    position: relative;
+
+    width: 100%;
+    max-width: none;
+
+    min-height: 188px;
+
+    margin: 0;
+
+    padding:
+      27px
+      19px
+      20px;
+
+    overflow: hidden;
+
+    border:
+      1px solid
+      rgba(165, 182, 197, 0.58);
+
+    border-radius: 16px;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.98),
+        rgba(247, 250, 252, 0.96)
+      );
+
+    box-shadow:
+      0 14px 30px
+      rgba(18, 31, 43, 0.065);
+  }
+
+  .mobileJourneyCard::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 24px;
+    right: 24px;
+
+    height: 2px;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(52, 119, 227, 0.9),
+        transparent
+      );
+  }
+
+
+  /* =======================================================
+     MOBILE CARD TOP
+     ======================================================= */
+
+  .mobileJourneyTop {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    min-height: 64px;
+
+    margin-bottom: 12px;
+  }
+
+
+  /* =======================================================
+     MOBILE LOGOS
+     ======================================================= */
+
+  .mobileJourneyLogo {
+    width: 72px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    flex: 0 1 auto;
+  }
+
+  .mobileJourneyLogo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: left center;
+  }
+
+
+  .mobileJourneyCard:has(img[src*="pune"])
+  .mobileJourneyLogo {
+    width: 80px;
+    height: 64px;
+  }
+
+  .mobileJourneyCard:has(img[src*="wayne"])
+  .mobileJourneyLogo {
+    width: 66px;
+    height: 66px;
+  }
+
+  .mobileJourneyCard:has(img[src*="bosch"])
+  .mobileJourneyLogo {
+    width: 105px;
+    height: 58px;
+  }
+
+  .mobileJourneyCard:has(img[src*="volvo"])
+  .mobileJourneyLogo {
+    width: 66px;
+    height: 66px;
+  }
+
+
+  /* =======================================================
+     MOBILE BADGE
+     ======================================================= */
+
+  .mobileJourneyType {
+    flex: 0 0 auto;
+
+    padding:
+      5px
+      7px;
+
+    border:
+      1px solid
+      rgba(52, 119, 227, 0.17);
+
+    border-radius: 7px;
+
+    background:
+      rgba(52, 119, 227, 0.06);
+
+    color: var(--accent);
+
+    font-size: 0.4rem;
+    font-weight: 820;
+    letter-spacing: 0.06em;
+
+    text-transform: uppercase;
+  }
+
+
+  /* =======================================================
+     MOBILE TEXT
+     ======================================================= */
+
+  .mobileJourneyPeriod {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #8994a0;
+
+    font-size: 0.52rem;
+    font-weight: 720;
+  }
+
+  .mobileJourneyCard h3 {
+    margin: 0;
+
+    color: var(--ink);
+
+    font-size: 0.81rem;
+    line-height: 1.23;
+
+    font-weight: 750;
+
+    letter-spacing:
+      -0.014em;
+  }
+
+  .mobileJourneyCard p {
+    margin:
+      5px
+      0
+      0;
+
+    color: var(--muted);
+
+    font-size: 0.57rem;
+    line-height: 1.42;
+  }
+
+
+  /* =======================================================
+     MOBILE ROAD
+     ======================================================= */
+
+  .mobileJourneyRoad {
+    position: relative;
+
+    width: 100%;
+
+    height: 66px;
+
+    margin: 0;
+  }
+
+  .mobileJourneyDot {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 22px;
+    left: 50%;
+
+    width: 14px;
+    height: 14px;
+
+    transform:
+      translateX(-50%);
+
+    border:
+      4px solid
+      #edf5fb;
+
+    border-radius: 50%;
+
+    background:
+      var(--accent);
+  }
+
+  .mobileJourneyLine {
+    position: absolute;
+
+    top: 28px;
+    left: 50%;
+
+    width: 100vw;
+
+    height: 5px;
+
+    border-radius: 999px;
+
+    background:
+      linear-gradient(
+        90deg,
+        #c9d8e3,
+        #abc9df,
+        #c9d8e3
+      );
+  }
+
+  .mobileJourneyLine::after {
+    content: "";
+
+    position: absolute;
+
+    top: -2px;
+    left: 0;
+
+    width: 40px;
+    height: 9px;
+
+    border-radius: 999px;
+
+    background:
+      rgba(52, 119, 227, 0.28);
+
+    filter:
+      blur(3px);
+
+    animation:
+      mobileTravel
+      2.8s
+      linear
+      infinite;
+  }
+
+
+  @keyframes mobileTravel {
+    from {
+      transform:
+        translateX(0);
+    }
+
+    to {
+      transform:
+        translateX(
+          calc(100vw - 40px)
+        );
+    }
+  }
+
+
+  /* =======================================================
+     PROGRESS
+     ======================================================= */
+
+  .mobileJourneyProgress {
+    display: flex;
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-top: 2px;
+  }
+
+  .mobileJourneyProgress span {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #c5d0d9;
+  }
+
+  .mobileJourneyProgress
+  .mobileProgressActive {
+    width: 19px;
+
+    border-radius: 999px;
+
+    background: var(--accent);
+  }
+
+
+  /* =======================================================
+     CLOSE
+     ======================================================= */
+
+  .closeGrid {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+  }
+
+  .closeSection h2 {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  .mobileJourneyStage {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .mobileJourneyNumber {
+    left: 35px;
+  }
+
+  .mobileJourneyCard {
+    min-height: 178px;
+
+    padding:
+      25px
+      16px
+      18px;
+  }
+
+  .mobileJourneyTop {
+    min-height: 58px;
+
     gap: 9px;
   }
 
-  .experienceRow {
-    grid-template-columns: 1fr;
-    gap: 7px;
+  .mobileJourneyCard:has(img[src*="bosch"])
+  .mobileJourneyLogo {
+    width: 94px;
   }
 
-  .educationGrid {
-    grid-template-columns: 1fr;
+  .mobileJourneyCard h3 {
+    font-size: 0.76rem;
   }
 
-  .educationCard {
-    grid-template-columns: 1fr;
-    gap: 8px;
+  .mobileJourneyType {
+    font-size: 0.37rem;
+
+    padding:
+      5px
+      6px;
   }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .roadPath, .journeyStop, .journeyMarker, .mobileJourneyNumber, .mobileJourneyLine::after{
+    animation: none;
+  }
+
+  .journeyStop {
+    opacity: 1;
+  }
+
+  .roadTraveler {
+    display: none;
+  }
+}
+
+/* =========================================================
+   PORTRAIT — BEACH CANVAS
+   FINAL PORTRAIT OVERRIDES ONLY
+   ========================================================= */
+
+
+/* =========================================================
+   PHOTO COLUMN
+   ========================================================= */
+
+.photoColumn {
+  position: sticky !important;
+  top: 92px;
+
+  width: 100%;
+  max-width: 380px;
+
+  margin-inline: auto;
+
+  isolation: isolate;
+
+  background: none !important;
+}
+
+
+/* =========================================================
+   OUTER ORGANIC SAND BLOB
+   ========================================================= */
+
+.photoColumn::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: -3;
+
+  width: 106%;
+  height: 88%;
+
+  top: 6%;
+  left: -3%;
+
+  border-radius:
+    53% 47% 61% 39%
+    /
+    43% 57% 44% 56%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(244, 214, 161, 0.82) 0%,
+      rgba(239, 197, 132, 0.58) 48%,
+      rgba(230, 176, 111, 0.34) 100%
+    );
+
+  filter:
+    drop-shadow(
+      0 18px 32px
+      rgba(99, 76, 48, 0.08)
+    );
+
+  animation:
+    beachOuterSand
+    13s
+    ease-in-out
+    infinite alternate;
+}
+
+
+/* =========================================================
+   OUTER SEAFOAM BLOB
+   ========================================================= */
+
+.photoColumn::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: -2;
+
+  width: 103%;
+  height: 88%;
+
+  top: 8%;
+  left: 3%;
+
+  border-radius:
+    44% 56% 42% 58%
+    /
+    57% 41% 59% 43%;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(128, 211, 202, 0.52),
+      rgba(83, 181, 201, 0.38) 52%,
+      rgba(91, 157, 205, 0.22)
+    );
+
+  animation:
+    beachOuterWater
+    15s
+    ease-in-out
+    infinite alternate;
+}
+
+
+/* =========================================================
+   MAIN BEACH CANVAS
+   ========================================================= */
+
+.aboutPhoto {
+  position: relative !important;
+
+  z-index: 2;
+
+  width:
+    clamp(
+      290px,
+      26vw,
+      345px
+    ) !important;
+
+  max-width: 345px !important;
+
+  aspect-ratio: 4 / 5 !important;
+
+  margin-inline: auto;
+
+  overflow: hidden !important;
+
+  border: 0 !important;
+
+  border-radius:
+    46% 54% 48% 52%
+    /
+    39% 43% 57% 61% !important;
+
+  /*
+     Layered beach painting:
+     sun
+     sky
+     ocean
+     sand
+  */
+
+  background:
+    radial-gradient(
+      circle at 79% 19%,
+      rgba(255, 213, 132, 0.95) 0,
+      rgba(255, 198, 111, 0.52) 8%,
+      rgba(255, 198, 111, 0.12) 20%,
+      transparent 31%
+    ),
+
+    linear-gradient(
+      180deg,
+      #d8edf0 0%,
+      #c3e3e4 29%,
+      #8bc9c8 29%,
+      #72b8bb 50%,
+      #e8d2a7 50%,
+      #efd9ad 72%,
+      #e6c48e 100%
+    ) !important;
+
+  box-shadow:
+    0 22px 46px
+      rgba(26, 48, 55, 0.10),
+
+    0 7px 18px
+      rgba(89, 161, 172, 0.08) !important;
+
+  animation:
+    beachCanvasMorph
+    14s
+    ease-in-out
+    infinite alternate;
+}
+
+
+/* =========================================================
+   BEACH WAVES + SHORE
+   ========================================================= */
+
+.aboutPhoto::before {
+  content: "";
+
+  position: absolute;
+
+  z-index: 1;
+
+  left: -15%;
+  right: -15%;
+
+  bottom: 18%;
+
+  height: 37%;
+
+  border-radius:
+    52% 48% 44% 56%
+    /
+    57% 45% 55% 43%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(108, 191, 190, 0.38) 0%,
+      rgba(93, 178, 181, 0.28) 27%,
+      rgba(239, 224, 191, 0.70) 29%,
+      rgba(237, 211, 164, 0.92) 62%,
+      rgba(224, 190, 135, 0.92) 100%
+    );
+
+  transform:
+    rotate(-4deg);
+
+  animation:
+    beachShoreMove
+    10s
+    ease-in-out
+    infinite alternate;
+}
+
+
+/* =========================================================
+   PALM TREE CANVAS
+   Two palms + coconuts
+   Everything stays INSIDE oval
+   ========================================================= */
+
+.aboutPhoto::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: 2;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 520'%3E%3Cg%3E%3C!-- LEFT PALM --%3E%3Cpath d='M66 510 C83 410 91 312 84 213' fill='none' stroke='%238e6747' stroke-width='11' stroke-linecap='round'/%3E%3Cpath d='M84 213 C51 171 21 169 4 182 C34 147 65 146 90 190 C70 138 75 104 91 76 C91 124 102 159 98 194 C118 148 145 127 177 117 C145 145 126 171 111 202 C150 176 180 182 202 198 C168 192 140 203 111 217 C146 219 171 235 187 258 C155 240 132 235 102 230Z' fill='%233f7c4c'/%3E%3Cellipse cx='90' cy='216' rx='9' ry='8' fill='%235f3b27'/%3E%3Cellipse cx='104' cy='221' rx='8' ry='8' fill='%235f3b27'/%3E%3Cellipse cx='80' cy='226' rx='8' ry='7' fill='%235f3b27'/%3E%3C!-- RIGHT PALM --%3E%3Cpath d='M338 520 C325 440 317 366 319 287' fill='none' stroke='%23966d4d' stroke-width='9' stroke-linecap='round'/%3E%3Cpath d='M319 286 C289 251 263 252 242 263 C268 236 295 236 320 269 C306 231 311 201 325 180 C324 217 335 245 332 271 C348 238 371 222 397 216 C372 237 357 255 347 278 C375 261 397 268 414 280 C388 276 368 285 345 297 C368 301 384 314 397 333 C375 318 356 312 337 308Z' fill='%234b8654'/%3E%3Cellipse cx='322' cy='287' rx='8' ry='7' fill='%235f3b27'/%3E%3Cellipse cx='334' cy='290' rx='7' ry='7' fill='%235f3b27'/%3E%3C/g%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+
+  background-position:
+    center bottom;
+
+  background-size:
+    100% 100%;
+
+  opacity: 0.72;
+
+  transform-origin:
+    50%
+    100%;
+
+  animation:
+    palmCanvasSway
+    7.5s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   PORTRAIT
+   ========================================================= */
+
+.aboutPhoto img {
+  position: absolute !important;
+
+  z-index: 4;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 88% !important;
+  height: 96% !important;
+
+  max-width: none !important;
+
+  object-fit: contain !important;
+  object-position: center bottom !important;
+
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  transform:
+    translateX(-50%) !important;
+
+  animation:
+    beachPortraitFloat
+    6.5s
+    ease-in-out
+    infinite !important;
+
+  filter:
+    drop-shadow(
+      0 14px 15px
+      rgba(28, 38, 42, 0.13)
+    );
+
+  transition:
+    filter 300ms ease !important;
+}
+
+
+.aboutPhoto:hover img {
+  filter:
+    drop-shadow(
+      0 17px 18px
+      rgba(28, 38, 42, 0.17)
+    )
+    saturate(1.03);
+}
+
+
+/* =========================================================
+   PROFILE META
+   ========================================================= */
+
+.profileMeta {
+  width:
+    clamp(
+      290px,
+      26vw,
+      345px
+    ) !important;
+
+  max-width: 345px;
+
+  margin:
+    16px
+    auto
+    0 !important;
+
+  padding: 0 7px !important;
+
+  text-align: left;
+}
+
+
+.profileMeta strong {
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+
+.profileMeta span {
+  margin-top: 2px;
+
+  color: #69727d;
+
+  font-size: 0.54rem;
+}
+
+
+/* =========================================================
+   BEACH ANIMATIONS
+   ========================================================= */
+
+@keyframes beachOuterSand {
+
+  0% {
+    border-radius:
+      53% 47% 61% 39%
+      /
+      43% 57% 44% 56%;
+
+    transform:
+      translate3d(0, 0, 0)
+      rotate(-6deg);
+  }
+
+  50% {
+    border-radius:
+      43% 57% 48% 52%
+      /
+      56% 42% 58% 44%;
+
+    transform:
+      translate3d(-5px, 5px, 0)
+      rotate(-9deg);
+  }
+
+  100% {
+    border-radius:
+      58% 42% 39% 61%
+      /
+      48% 59% 41% 52%;
+
+    transform:
+      translate3d(4px, -6px, 0)
+      rotate(-4deg);
+  }
+
+}
+
+
+@keyframes beachOuterWater {
+
+  0% {
+    border-radius:
+      44% 56% 42% 58%
+      /
+      57% 41% 59% 43%;
+
+    transform:
+      rotate(6deg)
+      scale(1);
+  }
+
+  50% {
+    border-radius:
+      56% 44% 59% 41%
+      /
+      43% 58% 42% 57%;
+
+    transform:
+      rotate(2deg)
+      scale(1.025);
+  }
+
+  100% {
+    border-radius:
+      48% 52% 38% 62%
+      /
+      59% 45% 55% 41%;
+
+    transform:
+      rotate(8deg)
+      scale(0.99);
+  }
+
+}
+
+
+@keyframes beachCanvasMorph {
+
+  0% {
+    border-radius:
+      46% 54% 48% 52%
+      /
+      39% 43% 57% 61%;
+  }
+
+  50% {
+    border-radius:
+      53% 47% 42% 58%
+      /
+      45% 58% 42% 55%;
+  }
+
+  100% {
+    border-radius:
+      42% 58% 55% 45%
+      /
+      57% 41% 59% 43%;
+  }
+
+}
+
+
+@keyframes beachShoreMove {
+
+  from {
+    transform:
+      translate3d(-5px, 0, 0)
+      rotate(-4deg);
+  }
+
+  to {
+    transform:
+      translate3d(8px, 4px, 0)
+      rotate(-1deg);
+  }
+
+}
+
+
+@keyframes palmCanvasSway {
+
+  0%,
+  100% {
+    transform:
+      rotate(-0.6deg)
+      translateX(0);
+  }
+
+  50% {
+    transform:
+      rotate(0.8deg)
+      translateX(2px);
+  }
+
+}
+
+
+@keyframes beachPortraitFloat {
+
+  0%,
+  100% {
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateX(-50%)
+      translateY(-5px);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .photoColumn {
+    max-width: 330px;
+  }
+
+
+  .aboutPhoto {
+    width: 290px !important;
+    max-width: 290px !important;
+  }
+
+
+  .profileMeta {
+    width: 290px !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   Compact beach portrait
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .photoColumn {
+    position: relative !important;
+    top: auto;
+
+    width: 100%;
+    max-width: none;
+
+    display: grid;
+    justify-items: center;
+
+    margin:
+      2px
+      auto
+      4px;
+
+    background: none !important;
+  }
+
+
+  /*
+     Oval stays compact.
+     It won't occupy the entire phone screen anymore.
+  */
+
+  .aboutPhoto {
+    width:
+      clamp(
+        215px,
+        62vw,
+        265px
+      ) !important;
+
+    max-width: 265px !important;
+
+    aspect-ratio: 4 / 5 !important;
+
+    border-radius:
+      47% 53% 45% 55%
+      /
+      42% 45% 55% 58% !important;
+
+    box-shadow:
+      0 16px 32px
+        rgba(25, 48, 54, 0.10) !important;
+  }
+
+
+  /*
+     Palm trees are slightly larger on mobile
+     so they are still visible behind the person.
+  */
+
+  .aboutPhoto::after {
+    background-size:
+      108%
+      100%;
+
+    opacity: 0.78;
+  }
+
+
+  .aboutPhoto img {
+    width: 87% !important;
+    height: 95% !important;
+  }
+
+
+  /*
+     Outer amoeba layers are only slightly
+     larger than the canvas.
+  */
+
+  .photoColumn::before {
+    width:
+      clamp(
+        230px,
+        66vw,
+        280px
+      );
+
+    height: 84%;
+
+    top: 8%;
+
+    left: 50%;
+
+    transform:
+      translateX(-50%)
+      rotate(-5deg);
+
+    animation:
+      mobileSandMorph
+      12s
+      ease-in-out
+      infinite alternate;
+  }
+
+
+  .photoColumn::after {
+    width:
+      clamp(
+        230px,
+        67vw,
+        285px
+      );
+
+    height: 84%;
+
+    top: 8%;
+
+    left: 50%;
+
+    transform:
+      translateX(-50%)
+      rotate(5deg);
+
+    animation:
+      mobileWaterMorph
+      14s
+      ease-in-out
+      infinite alternate;
+  }
+
+
+  .profileMeta {
+    width:
+      clamp(
+        215px,
+        62vw,
+        265px
+      ) !important;
+
+    max-width: 265px;
+
+    margin-top:
+      13px !important;
+
+    padding: 0 !important;
+
+    align-items: center;
+
+    text-align: center;
+  }
+
+
+  .profileMeta strong {
+    font-size: 0.68rem;
+  }
+
+
+  .profileMeta span {
+    font-size: 0.5rem;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE BLOB ANIMATIONS
+   Keep translateX(-50%)
+   ========================================================= */
+
+@keyframes mobileSandMorph {
+
+  0% {
+    transform:
+      translateX(-50%)
+      rotate(-5deg)
+      scale(1);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      rotate(-9deg)
+      scale(1.025);
+  }
+
+}
+
+
+@keyframes mobileWaterMorph {
+
+  0% {
+    transform:
+      translateX(-50%)
+      rotate(5deg)
+      scale(1);
+  }
+
+  100% {
+    transform:
+      translateX(-50%)
+      rotate(1deg)
+      scale(1.02);
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  .aboutPhoto {
+    width:
+      clamp(
+        195px,
+        60vw,
+        235px
+      ) !important;
+
+    max-width: 235px !important;
+  }
+
+
+  .profileMeta {
+    width:
+      clamp(
+        195px,
+        60vw,
+        235px
+      ) !important;
+  }
+
+
+  .photoColumn::before,
+  .photoColumn::after {
+    width:
+      clamp(
+        210px,
+        66vw,
+        252px
+      );
+  }
+
+
+  .aboutPhoto img {
+    width: 88% !important;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .photoColumn::before,
+  .photoColumn::after,
+  .aboutPhoto,
+  .aboutPhoto::before,
+  .aboutPhoto::after,
+  .aboutPhoto img {
+    animation: none !important;
+  }
+
+}
