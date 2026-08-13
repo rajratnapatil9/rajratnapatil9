@@ -19,10 +19,10 @@ function getExperienceLogo(company: string) {
   const normalized = company.toLowerCase();
 
   if (normalized.includes("volvo")) {
-    return "/Images/volvo.png";
+    return "/images/volvo.png";
   }
 
-  return "/Images/company.png";
+  return "/images/company.png";
 }
 
 
@@ -40,7 +40,7 @@ function getEducationLogo(school: string) {
     return "/images/pune-university.jpg";
   }
 
-  return "/Images/university.png";
+  return "/images/university.png";
 }
 const careerJourney = [
   {
@@ -105,7 +105,7 @@ export default function AboutPage() {
           <div className={styles.photoColumn}>
             <div className={styles.aboutPhoto}>
               <Image
-                src="/Images/profile.png"
+                src="/images/profile.png"
                 alt="Rajratna Patil"
                 width={720}
                 height={820}
