@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { featuredProjects } from "@/data/site";
+import styles from "./projects.module.css";
 
 const details = [
   {
@@ -32,8 +33,10 @@ const details = [
 ];
 
 const projectRoutes: Record<string, string> = {
-  "Transport Delivery Precision Platform": "/projects/transport-delivery-precision-platform",
-  "Weekly Workforce Snapshot": "/projects/weekly-workforce-snapshot",
+  "Transport Delivery Precision Platform":
+    "/projects/transport-delivery-precision-platform",
+  "Weekly Workforce Snapshot":
+    "/projects/weekly-workforce-snapshot",
   "Andon Screens": "/projects/andon-screens",
 };
 
@@ -60,23 +63,28 @@ function getProjectThumbnail(title: string) {
 
 export default function ProjectsPage() {
   return (
-    <>
-      <section className="page-hero section-shell">
-        <Link className="text-link" href="/">
-          ← Back to home
-        </Link>
+    <main className={styles.projectsPage}>
+      <section className={styles.projectsIntro}>
+        <div className={styles.projectsShell}>
 
-        <span className="eyebrow">Projects</span>
+          <span className={styles.projectsEyebrow}>
+            Projects
+          </span>
 
-        <h1>Data engineering work built around real operating problems.</h1>
+          <h1>
+            Data engineering work built around real operating problems.
+          </h1>
 
-        <p>
-          A selection of platform, analytics and modeling work focused on
-          reliability, traceability and decision support.
-        </p>
+          <p className={styles.projectsIntroCopy}>
+            A selection of platform, analytics and modeling work focused on
+            reliability, traceability and decision support.
+          </p>
+        </div>
       </section>
 
-      <section className="section-block section-shell project-detail-list">
+      <section
+        className={`${styles.projectsList} ${styles.projectsShell}`}
+      >
         {details.map((item, index) => {
           const project = featuredProjects[index];
 
@@ -85,63 +93,72 @@ export default function ProjectsPage() {
           const projectHref = getProjectHref(item.title);
 
           return (
-            <article className="project-detail-card" key={item.title}>
+            <article
+              className={styles.projectsCard}
+              key={item.title}
+            >
               <Link
+                className={styles.projectsCardImageLink}
                 href={projectHref}
                 aria-label={`Open ${item.title}`}
               >
                 <div
-                  className={`project-detail-visual ${project.accent}`}
+                  className={styles.projectsCardImage}
                   style={{
-                    backgroundImage: `url("${getProjectThumbnail(item.title)}")`,
+                    backgroundImage: `url("${getProjectThumbnail(
+                      item.title
+                    )}")`,
                   }}
                   role="img"
                   aria-label={`${item.title} project thumbnail`}
                 />
               </Link>
 
-              <div className="project-detail-copy">
-                <span className="pill">{project.category}</span>
+              <div className={styles.projectsCardContent}>
+                <span className={styles.projectsCategory}>
+                  {project.category}
+                </span>
 
                 <h2>
-                  <Link href={projectHref}>{item.title}</Link>
+                  <Link href={projectHref}>
+                    {item.title}
+                  </Link>
                 </h2>
 
-                <div className="project-detail-grid">
+                <div className={styles.projectsInfoGrid}>
                   <div>
-                    <b>Problem</b>
+                    <strong>Problem</strong>
                     <p>{item.problem}</p>
                   </div>
 
                   <div>
-                    <b>Build</b>
+                    <strong>Build</strong>
                     <p>{item.build}</p>
                   </div>
 
                   <div>
-                    <b>Outcome</b>
+                    <strong>Outcome</strong>
                     <p>{item.outcome}</p>
                   </div>
                 </div>
 
-                <div className="stack-list">
+                <div className={styles.projectsStack}>
                   {project.stack.map((stack) => (
                     <span key={stack}>{stack}</span>
                   ))}
                 </div>
 
                 <Link
-                  className="text-link"
+                  className={styles.projectsOpenLink}
                   href={projectHref}
-                  style={{ marginTop: "20px", marginBottom: 0 }}
                 >
-                  Open project →
+                  Open project <span>→</span>
                 </Link>
               </div>
             </article>
           );
         })}
       </section>
-    </>
+    </main>
   );
 }

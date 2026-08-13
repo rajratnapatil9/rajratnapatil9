@@ -1,0 +1,414 @@
+.projectsPage {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --ink: #101523;
+  --muted: #687083;
+  --accent: #5b5df0;
+  --line: rgba(16, 21, 35, 0.1);
+
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.projectsShell {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.projectsIntro {
+  padding: 38px 0 36px;
+  border-bottom: 1px solid var(--line);
+}
+
+.projectsIntro .projectsShell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.projectsBack {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-bottom: 22px;
+
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 750;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.projectsBack span {
+  transition: transform 0.2s ease;
+}
+
+.projectsBack:hover span {
+  transform: translateX(-3px);
+}
+
+.projectsEyebrow {
+  display: block;
+
+  margin-bottom: 11px;
+
+  color: var(--accent);
+  font-size: 0.65rem;
+  font-weight: 850;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.projectsIntro h1 {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+
+  color: var(--ink);
+
+  font-size: clamp(1.65rem, 2vw, 2.15rem);
+  font-weight: 760;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+
+  white-space: nowrap;
+}
+
+.projectsIntroCopy {
+  max-width: 720px;
+
+  margin: 17px 0 0;
+
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   LIST
+========================= */
+
+.projectsList {
+  display: grid;
+  gap: 22px;
+
+  padding-top: 40px;
+  padding-bottom: 70px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.projectsCard {
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+
+  overflow: hidden;
+
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+
+  box-shadow: 0 8px 26px rgba(24, 31, 54, 0.035);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.projectsCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(24, 31, 54, 0.07);
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.projectsCardImageLink {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+
+  background: #fff;
+}
+
+.projectsCardImage {
+  width: 100%;
+  aspect-ratio: 1.68 / 1;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #fff;
+
+  transition: transform 0.3s ease;
+}
+
+.projectsCard:hover .projectsCardImage {
+  transform: scale(1.012);
+}
+
+
+/* =========================
+   COPY
+========================= */
+
+.projectsCardContent {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 27px 32px;
+
+  border-left: 1px solid var(--line);
+}
+
+.projectsCategory {
+  align-self: flex-start;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  background: rgba(91, 93, 240, 0.09);
+  color: var(--accent);
+
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.projectsCardContent h2 {
+  max-width: 650px;
+
+  margin: 13px 0 20px;
+
+  font-size: clamp(1.45rem, 1.8vw, 1.95rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.projectsCardContent h2 a {
+  color: inherit;
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.projectsCardContent h2 a:hover {
+  color: var(--accent);
+}
+
+
+/* =========================
+   PROBLEM / BUILD / OUTCOME
+========================= */
+
+.projectsInfoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.projectsInfoGrid > div {
+  min-width: 0;
+}
+
+.projectsInfoGrid strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--ink);
+
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.projectsInfoGrid p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.73rem;
+  line-height: 1.52;
+}
+
+
+/* =========================
+   STACK
+========================= */
+
+.projectsStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  margin-top: 16px;
+}
+
+.projectsStack span {
+  padding: 5px 8px;
+
+  border: 1px solid var(--line);
+  border-radius: 999px;
+
+  background: #fafbfe;
+  color: #646c7e;
+
+  font-size: 0.63rem;
+}
+
+
+/* =========================
+   OPEN PROJECT
+========================= */
+
+.projectsOpenLink {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 7px;
+
+  margin-top: 17px;
+
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.projectsOpenLink span {
+  transition: transform 0.2s ease;
+}
+
+.projectsOpenLink:hover span {
+  transform: translateX(3px);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .projectsIntro {
+    padding: 32px 0 30px;
+  }
+
+  .projectsIntro h1 {
+    font-size: clamp(1.85rem, 5vw, 2.6rem);
+  }
+
+  .projectsCard {
+    grid-template-columns: 1fr;
+  }
+
+  .projectsCardContent {
+    padding: 25px;
+
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+  .projectsShell {
+    width: calc(100% - 28px);
+  }
+
+  .projectsIntro {
+    padding: 26px 0 24px;
+  }
+
+  .projectsBack {
+    margin-bottom: 17px;
+    font-size: 0.75rem;
+  }
+
+  .projectsEyebrow {
+    margin-bottom: 9px;
+    font-size: 0.58rem;
+  }
+
+  .projectsIntro h1 {
+    font-size: clamp(1.6rem, 8vw, 2.1rem);
+    line-height: 1.04;
+  }
+
+  .projectsIntroCopy {
+    margin-top: 13px;
+
+    font-size: 0.79rem;
+    line-height: 1.55;
+  }
+
+  .projectsList {
+    gap: 18px;
+
+    padding-top: 28px;
+    padding-bottom: 50px;
+  }
+
+  .projectsCard {
+    border-radius: 19px;
+  }
+
+  .projectsCardContent {
+    padding: 21px 18px 23px;
+  }
+
+  .projectsCardContent h2 {
+    margin: 11px 0 18px;
+
+    font-size: 1.35rem;
+  }
+
+  .projectsInfoGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .projectsInfoGrid p {
+    font-size: 0.79rem;
+    line-height: 1.55;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  .projectsIntro h1 {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+    white-space: normal;
+  }
+}
+
+@media (max-width: 650px) {
+  .projectsIntro h1 {
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
+    line-height: 1.08;
+  }
+}
