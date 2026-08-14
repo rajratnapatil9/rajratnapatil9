@@ -117,7 +117,7 @@ export default function AboutPage() {
               <strong>Rajratna Patil</strong>
 
               <span>
-                Data Engineering · Analytics · Operations
+                Data Engineering · Data Analytics · Operations
               </span>
             </div>
           </div>
@@ -125,9 +125,6 @@ export default function AboutPage() {
 
           {/* COPY */}
           <div className={styles.aboutCopy}>
-            <span className={styles.sectionEyebrow}>
-              ABOUT
-            </span>
 
             <h1>
               I like solving the problem behind the data.
@@ -166,10 +163,8 @@ export default function AboutPage() {
             {/* PRINCIPLES */}
             <div className={styles.principleGrid}>
               <div>
-                <span>01</span>
-
                 <strong>
-                  Understand the operation
+                  1 - Understand the operation
                 </strong>
 
                 <p>
@@ -179,10 +174,9 @@ export default function AboutPage() {
               </div>
 
               <div>
-                <span>02</span>
 
                 <strong>
-                  Build for reliability
+                 2 - Build for reliability
                 </strong>
 
                 <p>
@@ -190,12 +184,9 @@ export default function AboutPage() {
                   and maintainable.
                 </p>
               </div>
-
               <div>
-                <span>03</span>
-
                 <strong>
-                  Make data usable
+                 3 - Make data usable
                 </strong>
 
                 <p>
@@ -241,11 +232,6 @@ export default function AboutPage() {
           From Operational Experience Data Analytics and Data Engineering.
         </h2>
       </div>
-
-      <p>
-        A journey across engineering, business analysis,
-        operations and data.
-      </p>
     </div>
 
 

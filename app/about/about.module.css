@@ -1895,6 +1895,10 @@
 
   margin-inline: auto;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   isolation: isolate;
 
   background: none !important;
@@ -1913,9 +1917,9 @@
   z-index: -3;
 
   width: 106%;
-  height: 88%;
+  height: 82%;
 
-  top: 6%;
+  top: 5%;
   left: -3%;
 
   border-radius:
@@ -1957,9 +1961,9 @@
   z-index: -2;
 
   width: 103%;
-  height: 88%;
+  height: 82%;
 
-  top: 8%;
+  top: 7%;
   left: 3%;
 
   border-radius:
@@ -2199,43 +2203,57 @@
 
 /* =========================================================
    PROFILE META
+   Centered below portrait — no overlap
    ========================================================= */
-
 .profileMeta {
-  width:
-    clamp(
-      290px,
-      26vw,
-      345px
-    ) !important;
+  position: relative;
+  z-index: 8;
 
-  max-width: 345px;
+  width: 100%;
+  max-width: 420px;
 
-  margin:
-    16px
-    auto
-    0 !important;
+  margin: 28px auto 0;
+  padding: 0;
 
-  padding: 0 7px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  text-align: left;
+  gap: 5px;
+
+  text-align: center;
 }
-
 
 .profileMeta strong {
-  font-size: 0.72rem;
-  font-weight: 750;
-}
+  display: block;
 
+  margin: 0;
+
+  color: #171c25;
+
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.08;
+
+  letter-spacing: -0.025em;
+  text-align: center;
+}
 
 .profileMeta span {
-  margin-top: 2px;
+  display: block;
 
-  color: #69727d;
+  margin: 0;
 
-  font-size: 0.54rem;
+  color: #687281;
+
+  font-size: 0.74rem;
+  font-weight: 400;
+  line-height: 1.35;
+
+  text-align: center;
+  white-space: nowrap;
 }
-
 
 /* =========================================================
    BEACH ANIMATIONS
@@ -2414,7 +2432,9 @@
 
 
   .profileMeta {
-    width: 290px !important;
+    width: 100% !important;
+    max-width: 360px;
+    margin-top: 24px;
   }
 
 }
@@ -2434,8 +2454,9 @@
     width: 100%;
     max-width: none;
 
-    display: grid;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     margin:
       2px
@@ -2507,7 +2528,7 @@
         280px
       );
 
-    height: 84%;
+    height: 76%;
 
     top: 8%;
 
@@ -2533,7 +2554,7 @@
         285px
       );
 
-    height: 84%;
+    height: 76%;
 
     top: 8%;
 
@@ -2552,33 +2573,32 @@
 
 
   .profileMeta {
-    width:
-      clamp(
-        215px,
-        62vw,
-        265px
-      ) !important;
+    width: 100% !important;
+    max-width: 360px;
 
-    max-width: 265px;
+    margin-top: 20px !important;
+    padding: 0 8px !important;
 
-    margin-top:
-      13px !important;
-
-    padding: 0 !important;
-
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    gap: 4px;
 
     text-align: center;
   }
 
 
   .profileMeta strong {
-    font-size: 0.68rem;
+    font-size: 1.05rem;
+    line-height: 1.08;
   }
 
 
   .profileMeta span {
-    font-size: 0.5rem;
+    font-size: clamp(0.58rem, 2.45vw, 0.66rem);
+    line-height: 1.35;
+    white-space: nowrap;
   }
 
 }
@@ -2646,12 +2666,16 @@
 
 
   .profileMeta {
-    width:
-      clamp(
-        195px,
-        60vw,
-        235px
-      ) !important;
+    width: 100% !important;
+    max-width: 320px;
+  }
+
+  .profileMeta strong {
+    font-size: 1rem;
+  }
+
+  .profileMeta span {
+    font-size: 0.56rem;
   }
 
 
@@ -2688,4 +2712,495 @@
     animation: none !important;
   }
 
+}
+
+
+/* =========================================================
+   MOBILE JOURNEY — FULL TIMELINE OVERVIEW
+   IMPORTANT: keep this at the VERY END of this file.
+   Replaces the old swipe-card mobile journey with the
+   compact desktop-style alternating timeline.
+   ========================================================= */
+
+@media (max-width: 900px) {
+  /* Section */
+  .journeySection {
+    width: 100% !important;
+    overflow: hidden !important;
+    padding: 26px 0 30px !important;
+  }
+
+  .journeySection > .shell {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  /* Compact header like the reference */
+  .journeyHeader {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: end !important;
+    gap: 10px !important;
+    width: calc(100% - 20px) !important;
+    margin: 0 auto 8px !important;
+  }
+
+  .journeyHeader .sectionEyebrow {
+    grid-column: 1 / -1 !important;
+    margin: 0 0 3px !important;
+    font-size: 0.42rem !important;
+    line-height: 1 !important;
+  }
+
+  .journeyHeader h2 {
+    max-width: none !important;
+    margin: 0 !important;
+    font-size: clamp(0.72rem, 2.8vw, 0.9rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .journeyHeader > p {
+    max-width: 155px !important;
+    margin: 0 !important;
+    font-size: 0.34rem !important;
+    line-height: 1.35 !important;
+    text-align: right !important;
+  }
+
+  /* CRITICAL SWITCH: use desktop journey on mobile */
+  .desktopJourney {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .mobileJourney,
+  .mobileJourneyHint,
+  .mobileJourneyScroller,
+  .mobileJourneyProgress {
+    display: none !important;
+  }
+
+  /* Timeline canvas */
+  .journeyCanvas {
+    position: relative !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 286px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .journeyRoad {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .roadOuter {
+    stroke-width: 11 !important;
+  }
+
+  .roadPath {
+    stroke-width: 1.45 !important;
+    stroke-dasharray: 8 10 !important;
+  }
+
+  /* Stops */
+  .journeyStop {
+    top: 0 !important;
+    bottom: 0 !important;
+    width: clamp(70px, 18vw, 92px) !important;
+    opacity: 1 !important;
+    transform: translateX(-50%) !important;
+  }
+
+  /* Cards */
+  .journeyCard {
+    left: 50% !important;
+    width: clamp(70px, 18vw, 92px) !important;
+    min-height: 94px !important;
+    padding: 6px 7px 7px !important;
+    border-radius: 8px !important;
+    transform: translateX(-50%) !important;
+    box-shadow: 0 6px 15px rgba(18, 31, 43, 0.065) !important;
+  }
+
+  .journeyCard:hover {
+    transform: translateX(-50%) !important;
+  }
+
+  .journeyCard::before {
+    left: 8px !important;
+    right: 8px !important;
+    height: 1px !important;
+  }
+
+  .journeyStopTop .journeyCard {
+    top: 3px !important;
+  }
+
+  .journeyStopBottom .journeyCard {
+    top: 188px !important;
+  }
+
+  /* Logo / badge row */
+  .journeyCardTop {
+    min-height: 31px !important;
+    margin-bottom: 3px !important;
+    gap: 3px !important;
+  }
+
+  .journeyLogo {
+    width: 34px !important;
+    height: 29px !important;
+  }
+
+  .journeyCard:has(img[src*="pune"]) .journeyLogo,
+  .journeyCard:has(img[src*="wayne"]) .journeyLogo {
+    width: 31px !important;
+    height: 31px !important;
+  }
+
+  .journeyCard:has(img[src*="bosch"]) .journeyLogo {
+    width: 43px !important;
+    height: 27px !important;
+  }
+
+  .journeyCard:has(img[src*="volvo"]) .journeyLogo {
+    width: 31px !important;
+    height: 31px !important;
+  }
+
+  .journeyType {
+    padding: 2px 3px !important;
+    border-radius: 4px !important;
+    font-size: 0.23rem !important;
+    letter-spacing: 0.035em !important;
+  }
+
+  /* Text */
+  .journeyPeriod {
+    margin-bottom: 2px !important;
+    font-size: 0.29rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .journeyCard h3 {
+    margin: 0 !important;
+    font-size: clamp(0.35rem, 1.45vw, 0.44rem) !important;
+    line-height: 1.18 !important;
+  }
+
+  .journeyCard p {
+    margin: 2px 0 0 !important;
+    font-size: clamp(0.25rem, 1.05vw, 0.31rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Connectors */
+  .journeyStop::before {
+    width: 1px !important;
+  }
+
+  .journeyStopTop::before {
+    top: 99px !important;
+    height: 28px !important;
+  }
+
+  .journeyStopBottom::before {
+    top: 148px !important;
+    height: 41px !important;
+  }
+
+  /* Number markers */
+  .journeyMarker {
+    top: 126px !important;
+    width: 23px !important;
+    height: 23px !important;
+    border-width: 3px !important;
+  }
+
+  .journeyMarker span {
+    font-size: 0.27rem !important;
+  }
+
+  .roadTraveler {
+    filter: drop-shadow(0 2px 4px rgba(52, 119, 227, 0.28)) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .journeySection {
+    padding: 22px 0 26px !important;
+  }
+
+  .journeyHeader {
+    width: calc(100% - 14px) !important;
+    gap: 6px !important;
+  }
+
+  .journeyHeader h2 {
+    font-size: 0.67rem !important;
+  }
+
+  .journeyHeader > p {
+    max-width: 120px !important;
+    font-size: 0.29rem !important;
+  }
+
+  .journeyCanvas {
+    height: 272px !important;
+  }
+
+  .journeyStop,
+  .journeyCard {
+    width: 68px !important;
+  }
+
+  .journeyCard {
+    min-height: 88px !important;
+    padding: 5px 5px 6px !important;
+  }
+
+  .journeyStopTop::before {
+    top: 93px !important;
+    height: 30px !important;
+  }
+
+  .journeyMarker {
+    top: 121px !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .journeyStopBottom::before {
+    top: 143px !important;
+    height: 34px !important;
+  }
+
+  .journeyStopBottom .journeyCard {
+    top: 176px !important;
+  }
+
+  .journeyCard h3 {
+    font-size: 0.34rem !important;
+  }
+
+  .journeyCard p {
+    font-size: 0.24rem !important;
+  }
+
+  .journeyPeriod {
+    font-size: 0.26rem !important;
+  }
+}
+
+/* =========================================================
+   MOBILE JOURNEY — BADGE CROP FIX
+   Keeps EDUCATION / EXPERIENCE fully inside narrow cards
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .journeyCardTop {
+    position: relative !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-right: 34px !important;
+    overflow: visible !important;
+  }
+
+  .journeyType {
+    position: absolute !important;
+    top: 2px !important;
+    right: 0 !important;
+    z-index: 3 !important;
+
+    width: auto !important;
+    max-width: none !important;
+
+    padding: 3px 4px !important;
+
+    font-size: 0.20rem !important;
+    line-height: 1 !important;
+    letter-spacing: 0.015em !important;
+
+    white-space: nowrap !important;
+    flex: none !important;
+
+    transform: scale(0.9) !important;
+    transform-origin: top right !important;
+  }
+
+  .journeyLogo {
+    flex: 0 0 auto !important;
+    max-width: calc(100% - 28px) !important;
+  }
+
+  .journeyCard:has(img[src*="pune"]) .journeyLogo,
+  .journeyCard:has(img[src*="wayne"]) .journeyLogo {
+    width: 31px !important;
+    height: 31px !important;
+  }
+
+  .journeyCard:has(img[src*="bosch"]) .journeyLogo {
+    width: 40px !important;
+    height: 26px !important;
+  }
+
+  .journeyCard:has(img[src*="volvo"]) .journeyLogo {
+    width: 31px !important;
+    height: 31px !important;
+  }
+}
+
+@media (max-width: 520px) {
+
+  .journeyCardTop {
+    padding-right: 28px !important;
+  }
+
+  .journeyType {
+    top: 1px !important;
+    right: -1px !important;
+    padding: 2px 3px !important;
+    font-size: 0.18rem !important;
+    letter-spacing: 0 !important;
+    transform: scale(0.84) !important;
+  }
+
+  .journeyCard:has(img[src*="bosch"]) .journeyLogo {
+    width: 36px !important;
+    height: 24px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE JOURNEY — RESTORE LOGOS + KEEP BADGES VISIBLE
+   Final override
+   ========================================================= */
+@media (max-width: 900px) {
+  .journeyCardTop {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 42px !important;
+    margin-bottom: 4px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Logo gets its own anchored area and is no longer squeezed by the badge. */
+  .journeyLogo {
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    z-index: 2 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    width: 32px !important;
+    height: 31px !important;
+    max-width: none !important;
+    min-width: 0 !important;
+
+    flex: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+  }
+
+  .journeyLogo img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+
+    object-fit: contain !important;
+    object-position: left center !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .journeyCard:has(img[src*="pune"]) .journeyLogo,
+  .journeyCard:has(img[src*="wayne"]) .journeyLogo {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .journeyCard:has(img[src*="bosch"]) .journeyLogo {
+    width: 39px !important;
+    height: 25px !important;
+  }
+
+  .journeyCard:has(img[src*="volvo"]) .journeyLogo {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Badge is independently positioned, so it cannot shrink the logo. */
+  .journeyType {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    z-index: 4 !important;
+
+    width: auto !important;
+    max-width: none !important;
+
+    padding: 2px 3px !important;
+    margin: 0 !important;
+
+    font-size: 0.19rem !important;
+    line-height: 1 !important;
+    letter-spacing: 0.01em !important;
+
+    white-space: nowrap !important;
+    transform: none !important;
+    transform-origin: top right !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .journeyCardTop {
+    min-height: 39px !important;
+  }
+
+  .journeyLogo {
+    width: 29px !important;
+    height: 28px !important;
+  }
+
+  .journeyCard:has(img[src*="pune"]) .journeyLogo,
+  .journeyCard:has(img[src*="wayne"]) .journeyLogo,
+  .journeyCard:has(img[src*="volvo"]) .journeyLogo {
+    width: 29px !important;
+    height: 29px !important;
+  }
+
+  .journeyCard:has(img[src*="bosch"]) .journeyLogo {
+    width: 34px !important;
+    height: 22px !important;
+  }
+
+  .journeyType {
+    top: 0 !important;
+    right: 0 !important;
+    padding: 2px 2px !important;
+    font-size: 0.165rem !important;
+    letter-spacing: 0 !important;
+  }
 }
