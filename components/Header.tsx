@@ -6,9 +6,9 @@ import { site } from "@/data/site";
 
 const nav = [
   ["Home", "/"],
-  ["About", "/about/"],
+  ["My Journey", "/about/"],
   ["Projects", "/projects/"],
-  ["Certifications", "/certifications/"],
+  // ["Certifications", "/certifications/"],
 ] as const;
 
 export default function Header() {
